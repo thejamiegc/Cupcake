@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page errorPage="error.jsp" isErrorPage="false" %>
 
-<t:pagetemplate>
+<t:pagetemplate_user>
 
     <jsp:body>
 
@@ -16,4 +16,4 @@
 
     </jsp:body>
 
-</t:pagetemplate>
+</t:pagetemplate_user>

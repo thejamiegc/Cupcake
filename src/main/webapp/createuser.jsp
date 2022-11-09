@@ -7,12 +7,17 @@
 
     <jsp:body>
 
-        <h1>Welcome to Olsker Cupcakes</h1>
+        <h1>Create user</h1>
 
-        <c:if test="${sessionScope.user == null}">
-            <p>You are not logged in yet. You can do it here: <a
-                    href="login.jsp">Login</a></p>
-        </c:if>
+        <div class="form-outline mb-4">
+            <form style="width:100px" action="login" method="post">
+                <input type="text" id="username" placeholder="name@mail.com" name="username"/>
+                <br>
+                <input type="password" id="password" placeholder="password" name="password"/>
+                <br>
+                <input type="submit"  value="Log in"/>
+            </form>
+        </div>
 
     </jsp:body>
 

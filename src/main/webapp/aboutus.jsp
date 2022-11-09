@@ -7,7 +7,7 @@
 
     <jsp:body>
 
-        <h1>Welcome to Olsker Cupcakes</h1>
+        <h1>About us</h1>
 
         <c:if test="${sessionScope.user == null}">
             <p>You are not logged in yet. You can do it here: <a
