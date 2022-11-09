@@ -4,26 +4,16 @@
 <%@page errorPage="../error.jsp" isErrorPage="false" %>
 
 <t:pagetemplate>
-    <jsp:attribute name="header">
-         Welcome to the logged in area
-    </jsp:attribute>
-
-    <jsp:attribute name="footer">
-        Logged in area
-    </jsp:attribute>
 
     <jsp:body>
 
-        <p>You should be logged in now</p>
-
-        <c:if test="${sessionScope.user != null}">
-            <p>You are logged in with the role of "${sessionScope.user.role}".</p>
-        </c:if>
-
-        <c:if test="${sessionScope.user == null}">
-            <p>You are not logged in yet. You can do it here: <a
-                    href="../login.jsp">Login</a></p>
-        </c:if>
+        <h1>Welcome to Olsker Cupcakes</h1>
+        <img src="" alt="Image1">
+        <p>At Olsker cupcakes we make cupcakes for every desire!</p>
+        <p>You can order your cupcakes by choosing "bake a cupcake" at the top of the page.</p>
+        <br>
+        <br>
+        <p>Have fun!</p>
 
     </jsp:body>
 

@@ -31,13 +31,15 @@
                 <div class="navbar-nav justify-content-start">
                     <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">Home</a>
                     <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">About us</a>
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">Create user</a>
+                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">Bake a cupcake</a>
 
                 </div>
                 <div class="navbar-nav justify-content-end">
-                    <c:if test="${sessionScope.user == null }">
-                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp">Login</a>
+                    <c:if test="${sessionScope.user != null }">
+                        <p>User role</p>
+                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/logout">Log out</a>
                     </c:if>
+                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/"><img src="images/shoppingcart.png" width="20px;" height="20px;"></a>
                 </div>
             </div>
         </div>

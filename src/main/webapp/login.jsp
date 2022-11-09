@@ -16,14 +16,15 @@
     <jsp:body>
 
         <h3>You can log in here</h3>
-
-        <form action="login" method="post">
-            <label for="username">Username: </label>
-            <input type="text" id="username" name="username"/>
-            <label for="password">Password: </label>
-            <input type="password" id="password" name="password"/>
+        <div class="form-outline mb-4">
+        <form style="width:100px" action="login" method="post">
+            <input type="text" id="username" placeholder="name@mail.com" name="username"/>
+            <br>
+            <input type="password" id="password" placeholder="password" name="password"/>
+            <br>
             <input type="submit"  value="Log in"/>
         </form>
+        </div>
 
     </jsp:body>
 </t:pagetemplate>

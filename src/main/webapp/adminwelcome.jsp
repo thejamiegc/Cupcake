@@ -3,17 +3,14 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page errorPage="error.jsp" isErrorPage="false" %>
 
-<t:pagetemplate>
+<t:pagetemplate_admin>
 
     <jsp:body>
 
-        <h1>Welcome to Olsker Cupcakes</h1>
-
-        <c:if test="${sessionScope.user == null}">
-            <p>You are not logged in yet. You can do it here: <a
-                    href="login.jsp">Login</a></p>
-        </c:if>
-
+    <h1>Hello Admin!</h1>
+    <img src="" alt="Image1">
+    <p>You have more editing privileges. You can see users or orders at the top of the page.</p>
     </jsp:body>
 
-</t:pagetemplate>
+
+</t:pagetemplate_admin>
