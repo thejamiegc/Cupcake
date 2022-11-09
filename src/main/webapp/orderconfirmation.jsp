@@ -7,12 +7,9 @@
 
     <jsp:body>
 
-        <h1>Welcome to Olsker Cupcakes</h1>
+        <h1>Your order has been confirmed!</h1>
 
-        <c:if test="${sessionScope.user == null}">
-            <p>You are not logged in yet. You can do it here: <a
-                    href="login.jsp">Login</a></p>
-        </c:if>
+        <p>You can now pick up your orer at Olsken Cupcakes within 2 hours.</p>
 
     </jsp:body>
 

@@ -7,12 +7,40 @@
 
     <jsp:body>
 
-        <h1>Welcome to Olsker Cupcakes</h1>
+        <h1>Shopping cart</h1>
 
-        <c:if test="${sessionScope.user == null}">
-            <p>You are not logged in yet. You can do it here: <a
-                    href="login.jsp">Login</a></p>
-        </c:if>
+        <div class="">
+            <table>
+                <tr>
+                    <th style="font-weight: bold">Cupcakes</th>
+                    <th style="font-weight: bold">Price</th>
+                </tr>
+                <tr>
+                    <td>cupcake 1</td>
+                    <td>price</td>
+                    <td><input type="submit" value="Delete"></td>
+                </tr>
+                <tr>
+                    <td>cupcake 2</td>
+                    <td>price</td>
+                    <td><input type="submit" value="Delete"></td>
+                </tr>
+                <tr>
+                    <td>cupcake 3</td>
+                    <td>price</td>
+                    <td><input type="submit" value="Delete"></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">Total price</td>
+                    <td>Total price</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="">
+            <input type="submit" value="Checkout">
+        </div>
+
 
     </jsp:body>
 
