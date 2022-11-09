@@ -1,4 +1,6 @@
 package dat.backend.model.persistence;
 
-public class BottomFacade {
+public class BottomFacade
+{
+
 }
