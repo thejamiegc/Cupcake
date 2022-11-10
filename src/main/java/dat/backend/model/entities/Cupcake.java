@@ -13,6 +13,7 @@ private double cupcakeTotalPrice;
         this.topping = topping;
         this.bottom = bottom;
 
+
         cupcakeTotalPrice = this.topping.getToppingPrice() + this.bottom.getBottomPrice();
     }
 
