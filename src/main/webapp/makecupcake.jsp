@@ -9,7 +9,7 @@
 
         <h1>Design your cupcake</h1>
 
-        <form action="">
+        <form action="addtocart" method="post">
             <label for="toppings">The Toppings:</label>
             <select name="toppings" id="toppings">
                 <option value="Chocolate">Chocolate</option>
