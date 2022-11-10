@@ -15,6 +15,8 @@
                 <br>
                 <input type="password" id="password" placeholder="password" name="password"/>
                 <br>
+                <input type="password" id="passwordR" placeholder="reenter password" name="passwordR"/>
+                <br>
                 <input type="submit"  value="Log in"/>
             </form>
         </div>

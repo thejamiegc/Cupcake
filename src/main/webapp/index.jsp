@@ -10,7 +10,7 @@
         <h1>Welcome to Olsker Cupcakes</h1>
         <img src="" alt="Image1">
         <p>At Olsker cupcakes we make cupcakes for every desire!</p>
-        <p>You can order your cupcakes by choosing "bake a cupcake" at the top of the page ( when you are logged in).</p>
+        <p>You can order your cupcakes by choosing "make a cupcake" at the top of the page ( when you are logged in).</p>
         <br>
         <br>
         <p>Have fun!</p>
