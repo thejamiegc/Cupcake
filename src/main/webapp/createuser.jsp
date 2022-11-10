@@ -10,7 +10,7 @@
         <h1>Create user</h1>
 
         <div class="form-outline mb-4">
-            <form style="width:100px" action="login" method="post">
+            <form style="width:100px" action="createUser" method="post">
                 <input type="text" id="username" placeholder="name@mail.com" name="username"/>
                 <br>
                 <input type="password" id="password" placeholder="password" name="password"/>

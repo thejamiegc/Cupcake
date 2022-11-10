@@ -34,12 +34,6 @@
                     <a class="nav-item nav-link" href="${pageContext.request.contextPath}/createuser.jsp">Create user</a>
                     <a class="nav-item nav-link" href="${pageContext.request.contextPath}/login.jsp">Login</a>
 
-
-                </div>
-                <div class="navbar-nav justify-content-end">
-                    <c:if test="${sessionScope.user == null }">
-                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">Username</a>
-                    </c:if>
                 </div>
             </div>
         </div>

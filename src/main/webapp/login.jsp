@@ -17,7 +17,7 @@
 
         <h3>You can log in here</h3>
         <div class="form-outline mb-4">
-        <form style="width:100px" action="login" method="post">
+        <form action="login" style="width:100px" method="post">
             <input type="text" id="username" placeholder="name@mail.com" name="username"/>
             <br>
             <input type="password" id="password" placeholder="password" name="password"/>
