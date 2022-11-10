@@ -6,22 +6,44 @@ private int cupcakeID;
 private Topping topping;
 private Bottom bottom;
 private double cupcakeTotalPrice;
+int toppingID;
+int bottomID;
+int amount;
 
 
-    public Cupcake(int cupcakeID, Topping topping, Bottom bottom) {
+    /*public Cupcake(int cupcakeID, Topping topping, Bottom bottom) {
         this.cupcakeID = cupcakeID;
         this.topping = topping;
         this.bottom = bottom;
 
         cupcakeTotalPrice = this.topping.getToppingPrice() + this.bottom.getBottomPrice();
+    }*/
+
+    public Cupcake(int toppingID, int bottomID, int amount){
+        this.toppingID = toppingID;
+        this.bottomID = bottomID;
+        this.amount = amount;
+
     }
 
-    public Cupcake(Topping topping, Bottom bottom) {
+    public void Cupcake1(Topping topping, Bottom bottom) {
         this.topping = topping;
         this.bottom = bottom;
 
         cupcakeTotalPrice = this.topping.getToppingPrice() + this.bottom.getBottomPrice();
 
+    }
+
+    public int getToppingID() {
+        return toppingID;
+    }
+
+    public int getBottomID() {
+        return bottomID;
+    }
+
+    public int getAmount() {
+        return amount;
     }
 
     public int getCupcakeID() {

@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 public class CupcakeMapper {
 
 
-    public static Cupcake addCupcake(Topping topping, Bottom bottom, ConnectionPool connectionPool) throws DatabaseException{
+    public static void addCupcake(Topping topping, Bottom bottom, ConnectionPool connectionPool) throws DatabaseException{
         Logger.getLogger("web").log(Level.INFO, "");
         Cupcake cupcake;
         String sql = "INSERT INTO cupcake.cupcake (toppingID, bottomID) VALUES (?, ?)";
@@ -26,7 +26,7 @@ public class CupcakeMapper {
                 int rowsAffected = ps.executeUpdate();
                 if(rowsAffected == 1)
                 {
-                    cupcake = new Cupcake(topping,bottom);
+                    //cupcake = new Cupcake(topping,bottom);
                 }else
                 {
                     throw new DatabaseException("The topping with the name = " + topping + "and the bottom with the name "+ bottom +" could not be inserted into the database");
@@ -37,7 +37,7 @@ public class CupcakeMapper {
             throw new DatabaseException(ec,"Could not insert cupcake into database");
         }
 
-        return cupcake;
+        //return cupcake;
     }
 
 }

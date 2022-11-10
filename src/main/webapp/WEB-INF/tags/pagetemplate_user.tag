@@ -29,9 +29,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav justify-content-start">
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/welcome.jsp">Home</a>
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/aboutus.jsp">About us</a>
+                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/welcomeUser.jsp">Home</a>
                     <a class="nav-item nav-link" href="${pageContext.request.contextPath}/makecupcake.jsp">Make a cupcake</a>
+
 
                 </div>
                 <div class="navbar-nav justify-content-end">
@@ -44,7 +44,8 @@
                         <p>User role</p>
                         <a class="nav-item nav-link" href="${pageContext.request.contextPath}/logout">Log out</a>
                     </c:if>
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/"><img src="images/shoppingcart.png" width="20px;" height="20px;"></a>
+
+                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/shoppingcart.jsp"><img src="images/shoppingcart.png" width="20px;" height="20px;"></a>
                 </div>
             </div>
         </div>
