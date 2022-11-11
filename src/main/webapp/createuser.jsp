@@ -20,10 +20,10 @@
                 <input type="password" id="password" placeholder="password" name="password"/>
                 <br>
                 <br>
-           <%--     <input type="password" id="passwordR" placeholder="reenter password" name="passwordR"/>
+                <input type="password" id="passwordR" placeholder="reenter password" name="passwordR"/>
                 <br>
-                <br>--%>
-                <input type="submit" value="Log in"/>
+                <br>
+                <input type="submit" value="Create User"/>
             </form>
         </div>
 

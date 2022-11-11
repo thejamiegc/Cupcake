@@ -1,6 +1,7 @@
 package dat.backend.control;
 
 import dat.backend.model.config.ApplicationStart;
+import dat.backend.model.entities.ShoppingCart;
 import dat.backend.model.entities.User;
 import dat.backend.model.exceptions.DatabaseException;
 import dat.backend.model.persistence.ConnectionPool;
@@ -28,12 +29,16 @@ public class CreateUser extends HttpServlet {
         session.setAttribute("user", null); // invalidating user object in session scope
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        String passwordR = request.getParameter("passwordR");
 
         try {
-            User user = UserFacade.createUser(username, password,"user", connectionPool);
+            UserFacade.createUser(username, password,"user",0., connectionPool);
+            User user = UserFacade.login(username, password, connectionPool);
             session = request.getSession();
             session.setAttribute("user", user); // adding user object to session scope
-            request.getRequestDispatcher("WEB-INF/login.jsp").forward(request, response);
+            ShoppingCart cart = new ShoppingCart();
+            session.setAttribute("cart", cart);
+            request.getRequestDispatcher("welcome.jsp").forward(request, response);
         }
         catch (DatabaseException e) {
             request.setAttribute("errormessage", e.getMessage());

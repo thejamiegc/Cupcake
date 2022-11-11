@@ -35,13 +35,8 @@
 
                 </div>
                 <div class="navbar-nav justify-content-end">
-                    <c:if test="${sessionScope.user == null }">
-                        <p>User role</p>
-                        <a class="nav-item nav-link" href="${pageContext.request.contextPath}/">Username</a>
-                    </c:if>
-
                     <c:if test="${sessionScope.user != null }">
-                        <p>User role</p>
+                        <p>${sessionScope.user.username}</p>
                         <a class="nav-item nav-link" href="${pageContext.request.contextPath}/logout">Log out</a>
                     </c:if>
 

@@ -31,10 +31,10 @@ class UserMapperTest
         try (Connection testConnection = connectionPool.getConnection()) {
             try (Statement stmt = testConnection.createStatement()) {
                 // Create test database - if not exist
-                stmt.execute("CREATE DATABASE  IF NOT EXISTS startcode_test;");
+                stmt.execute("CREATE DATABASE  IF NOT EXISTS cupcake;");
 
                 // TODO: Create user table. Add your own tables here
-                stmt.execute("CREATE TABLE IF NOT EXISTS startcode_test.user LIKE startcode.user;");
+                stmt.execute("CREATE TABLE IF NOT EXISTS cupcake.user LIKE cupcake.user;");
             }
         } catch (SQLException throwables) {
             System.out.println(throwables.getMessage());
@@ -47,11 +47,11 @@ class UserMapperTest
         try (Connection testConnection = connectionPool.getConnection()) {
             try (Statement stmt = testConnection.createStatement()) {
                 // TODO: Remove all rows from all tables - add your own tables here
-                stmt.execute("delete from user");
+                stmt.execute("delete from cupcake.user");
 
                 // TODO: Insert a few users - insert rows into your own tables here
-                stmt.execute("insert into user (username, password, role) " +
-                        "values ('user','1234','user'),('admin','1234','admin'), ('ben','1234','user')");
+                stmt.execute("insert into cupcake.user (username, password, role, balance) " +
+                        "values ('user','1234','user',0.),('admin','1234','admin',0.), ('ben','1234','user',0.)");
             }
         } catch (SQLException throwables) {
             System.out.println(throwables.getMessage());
@@ -87,7 +87,7 @@ class UserMapperTest
 
     @Test
     void createUser() throws DatabaseException {
-        User newUser = UserFacade.createUser("jill", "1234", "user", connectionPool);
+        User newUser = UserFacade.createUser("jill", "1234", "user",0., connectionPool);
         User logInUser = UserFacade.login("jill", "1234", connectionPool);
         User expectedUser = new User("jill", "1234", "user");
         assertEquals(expectedUser, newUser);
