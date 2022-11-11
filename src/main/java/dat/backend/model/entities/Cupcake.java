@@ -13,7 +13,7 @@ public class Cupcake {
         this.topping = topping;
         this.bottom = bottom;
         this.quantity = quantity;
-        //this.cupcakePrice = bottom.getBottomPrice() + topping.getToppingPrice();
+        this.cupcakePrice = (topping.getToppingPrice() + bottom.getBottomPrice()) * quantity;
     }
 
 

@@ -22,7 +22,7 @@
                 </tr>
                 <c:forEach var="item" items="${sessionScope.cart.cupcakeList}">
                     <tr>
-                        <td><p>(${item.quantity}) cupcake: ${item.toppingID} + ${item.bottomID}</p></td>
+                        <td><p>(${item.quantity}) cupcake: ${item.topping.toppingName} + ${item.bottom.bottomName}</p></td>
                         <td><p>${item.cupcakePrice}</p></td>
                         <td><button name="DeleteFromCart">Delete</button></td>
                         <td><button name="EditCupcake">Edit</button></td>

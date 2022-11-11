@@ -31,7 +31,7 @@ public class AddToCart extends HttpServlet {
         //Topping topping = CupcakeFacade.getToppingByID(toppingID, connectionPool);
         //Bottom bottom = CupcakeFacade.getBottomByID(bottomID, connectionPool);
 
-        Cupcake cupcake = new Cupcake(toppingList.get(toppingID), bottomList.get(bottomID), quantity);
+        Cupcake cupcake = new Cupcake(toppingList.get(toppingID-1), bottomList.get(bottomID-1), quantity);
         cart.add(cupcake); //adds a cupcake to the shopping cart
         session.setAttribute("cart", cart); //saves the new shopping cart on session scope
         request.setAttribute("cartsize", cart.getNumberOfCupcakes());
