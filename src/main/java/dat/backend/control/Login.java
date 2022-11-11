@@ -39,9 +39,13 @@ public class Login extends HttpServlet {
         session.setAttribute("user", null); // invalidating user object in session scope
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        String role = request.getParameter("role");
+//        String balance = request.getParameter("balance");
+        double balance = Double.parseDouble(request.getParameter("balance"));
+
 
         try {
-            User user = UserFacade.login(username, password, connectionPool);
+            User user = UserFacade.login(username, password,role,balance, connectionPool);
             session = request.getSession();
             session.setAttribute("user", user); // adding user object to session scope
 

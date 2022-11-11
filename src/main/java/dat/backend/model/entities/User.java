@@ -6,12 +6,13 @@ public class User {
     private String username;
     private String password;
     private String role;
-    private int balance;
+    private double balance;
 
-    public User(String username, String password, String role) {
+    public User(String username, String password, String role, double balance) {
         this.username = username;
         this.password = password;
         this.role = role;
+        this.balance = balance;
     }
 
     public String getUsername() {
@@ -38,11 +39,11 @@ public class User {
         this.role = role;
     }
 
-    public int getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(int balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 

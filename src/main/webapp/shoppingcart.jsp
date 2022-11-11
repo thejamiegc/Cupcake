@@ -12,7 +12,10 @@
         <p>Number of lines in cart: ${requestScope.cartsize}</p>
         <h3>Items in cart</h3>
 
+        <form action="orderconfirmation" method="post">
+
         <div class="">
+
             <table>
                 <tr>
                     <th style="font-weight: bold">Cupcakes</th>
@@ -36,7 +39,8 @@
         </div>
         <br>
         <div class="">
-            <button name="OrderConfirmation">Checkout</button>
+            <input type="submit" value="Checkout"/>
         </div>
+        </form>
     </jsp:body>
 </t:pagetemplate_user>
