@@ -4,14 +4,16 @@ import dat.backend.model.entities.Bottom;
 import dat.backend.model.entities.Topping;
 import dat.backend.model.exceptions.DatabaseException;
 
+import java.util.List;
+
 
 class CupcakeMapper {
 
-    static Topping getToppingByID(int toppingID, ConnectionPool connectionPool) throws DatabaseException {
-        return null;
+    static List<Topping> getToppingByID(int toppingID, ConnectionPool connectionPool) throws DatabaseException {
+        return ToppingMapper.getTopping(connectionPool);
     }
 
-    public static Bottom getBottomID(int bottomID, ConnectionPool connectionPool) throws DatabaseException {
-        return null;
+    public static List<Bottom> getBottomID(int bottomID, ConnectionPool connectionPool) throws DatabaseException {
+        return BottomMapper.getBottoms(connectionPool);
     }
 }

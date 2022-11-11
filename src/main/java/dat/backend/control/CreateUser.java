@@ -38,6 +38,9 @@ public class CreateUser extends HttpServlet {
             session.setAttribute("user", user); // adding user object to session scope
             ShoppingCart cart = new ShoppingCart();
             session.setAttribute("cart", cart);
+
+
+
             request.getRequestDispatcher("welcome.jsp").forward(request, response);
         }
         catch (DatabaseException e) {
