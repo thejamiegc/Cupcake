@@ -3,12 +3,13 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <t:pagetemplate_user>
+        <jsp:attribute name="header">
+             MAKE A CUPCAKE
+    </jsp:attribute>
 
     <jsp:body>
 
-        <h1>Design your cupcake</h1>
-
-        <form action="AddToCart" method="post">
+        <form action="addtocart" method="post">
             <label for="toppings">The Toppings:</label>
             <select name="toppings" id="toppings">
                 <option value="1">Chocolate</option>
@@ -21,7 +22,6 @@
                 <option value="8">Lemon</option>
                 <option value="9">Blue cheese</option>
             </select>
-            <br><br>
             <label for="bottoms">The Bottoms:</label>
             <select name="bottoms" id="bottoms">
                 <option value="1">Chocolate</option>
@@ -30,9 +30,8 @@
                 <option value="4">Pistacio</option>
                 <option value="5">Almond</option>
             </select>
-            <label for="amount">Number of cupcakes:</label>
-            <input type="number" id="amount" name="amount" min="1"/>
-            <br><br>
+            <label for="quantity">Number of cupcakes:</label>
+            <input type="number" id="quantity" name="quantity" min="1" max="50"/>
             <button name="AddToCart">Add to cart</button>
         </form>
 

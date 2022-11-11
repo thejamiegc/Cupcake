@@ -4,22 +4,23 @@
 <%@page errorPage="error.jsp" isErrorPage="false" %>
 
 <t:pagetemplate_admin>
+        <jsp:attribute name="header">
+            ORDERS
+    </jsp:attribute>
 
     <jsp:body>
-
-        <h1>Orders</h1>
         <p>Choose the account in the menu:</p>
 
         <div class="">
-        <form action="">
-        <label for="users">Users:</label>
-        <select name="users" id="users">
-            <option value="id1">email1</option>
-            <option value="id2">email2</option>
-            <option value="id3">email3</option>
-            <option value="id4">email4</option>
-        </select>
-        </form>
+            <form action="">
+                <label for="users">Users:</label>
+                <select name="users" id="users">
+                    <option value="id1">email1</option>
+                    <option value="id2">email2</option>
+                    <option value="id3">email3</option>
+                    <option value="id4">email4</option>
+                </select>
+            </form>
             <h3>Orderlist</h3>
             <table>
                 <tr>
@@ -32,19 +33,19 @@
                     <td>Date</td>
                     <td>price</td>
                     <td>Yes/no</td>
-                    <td><input type="submit" value="Delete"></td>
+                    <td><button name="DeleteOrder">Delete</button></td>
                 </tr>
                 <tr>
                     <td>Date</td>
                     <td>price</td>
                     <td>Yes/no</td>
-                    <td><input type="submit" value="Delete"></td>
+                    <td><button name="DeleteOrder">Delete</button></td>
                 </tr>
                 <tr>
                     <td>Date</td>
                     <td>price</td>
                     <td>Yes/no</td>
-                    <td><input type="submit" value="Delete"></td>
+                    <td><button name="DeletOrder">Delete</button></td>
                 </tr>
             </table>
         </div>

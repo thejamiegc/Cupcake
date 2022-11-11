@@ -50,16 +50,13 @@
     <hr/>
     <div class="row mt-4">
         <div class="col">
-        DAT 2.sem 2022<br/>
-            CPH Business
+        DAT 2.sem 2022 - CPH Business
         </div>
         <div class="col">
-            <jsp:invoke fragment="footer"/><br/>
             <p>&copy; Olsker Cupcakes</p>
         </div>
         <div class="col">
-            Isak, Jamie, Andreas, <br/>
-            Felicia og Helena
+            Isak, Jamie, Andreas, Felicia og Helena
         </div>
     </div>
 

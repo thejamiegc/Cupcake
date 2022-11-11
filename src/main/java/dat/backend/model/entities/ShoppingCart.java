@@ -5,11 +5,17 @@ import java.util.List;
 
 public class ShoppingCart {
 
-    List<Cupcake> cupcakeList = new ArrayList<>();
+    private List<Cupcake> cupcakeList = new ArrayList<>();
 
+    public ShoppingCart() {
+    }
 
     public void add(Cupcake cupcake) {
         cupcakeList.add(cupcake);
+    }
+
+    public void remove(Cupcake cupcake) {
+        cupcakeList.remove(cupcake);
     }
 
     public Object getNumberOfCupcakes() {
@@ -19,4 +25,5 @@ public class ShoppingCart {
     public List<Cupcake> getCupcakeList() {
         return cupcakeList;
     }
+
 }

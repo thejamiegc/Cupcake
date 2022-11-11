@@ -1,54 +1,42 @@
 package dat.backend.model.entities;
 
 public class Cupcake {
+    private Topping topping;
+    private Bottom bottom;
+    private int quantity;
+    private double cupcakePrice;
+    private int toppingID;
+    private int bottomID;
 
-private int cupcakeID;
-private Topping topping;
-private Bottom bottom;
-private double cupcakeTotalPrice;
-int toppingID;
-int bottomID;
-int amount;
-
-
-    /*public Cupcake(int cupcakeID, Topping topping, Bottom bottom) {
-        this.cupcakeID = cupcakeID;
-        this.topping = topping;
-        this.bottom = bottom;
-
-
-        cupcakeTotalPrice = this.topping.getToppingPrice() + this.bottom.getBottomPrice();
-    }*/
-
-    public Cupcake(int toppingID, int bottomID, int amount){
+    //constructor
+    public Cupcake(int toppingID, int bottomID, int quantity) {
         this.toppingID = toppingID;
         this.bottomID = bottomID;
-        this.amount = amount;
-
+        this.quantity = quantity;
     }
 
-    public void Cupcake1(Topping topping, Bottom bottom) {
+/*    //constructor
+    public Cupcake(Topping topping, Bottom bottom, int quantity) {
         this.topping = topping;
         this.bottom = bottom;
-
-        cupcakeTotalPrice = this.topping.getToppingPrice() + this.bottom.getBottomPrice();
-
-    }
+        this.quantity = quantity;
+        //this.cupcakePrice = bottom.getBottomPrice() + topping.getToppingPrice();
+    }*/
 
     public int getToppingID() {
         return toppingID;
+    }
+
+    public void setToppingID(int toppingID) {
+        this.toppingID = toppingID;
     }
 
     public int getBottomID() {
         return bottomID;
     }
 
-    public int getAmount() {
-        return amount;
-    }
-
-    public int getCupcakeID() {
-        return cupcakeID;
+    public void setBottomID(int bottomID) {
+        this.bottomID = bottomID;
     }
 
     public Topping getTopping() {
@@ -67,12 +55,20 @@ int amount;
         this.bottom = bottom;
     }
 
-    public double getCupcakeTotalPrice() {
-        return cupcakeTotalPrice;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setCupcakeTotalPrice(double cupcakeTotalPrice) {
-        this.cupcakeTotalPrice = cupcakeTotalPrice;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public double getCupcakePrice() {
+        return cupcakePrice;
+    }
+
+    public void setCupcakePrice(double cupcakePrice) {
+        this.cupcakePrice = cupcakePrice;
     }
 
     @Override
@@ -80,7 +76,10 @@ int amount;
         return "Cupcake{" +
                 "topping=" + topping +
                 ", bottom=" + bottom +
-                ", cupcakeTotalPrice=" + cupcakeTotalPrice +
+                ", quantity=" + quantity +
+                ", cupcakePrice=" + cupcakePrice +
+                ", toppingID=" + toppingID +
+                ", bottomID=" + bottomID +
                 '}';
     }
 }

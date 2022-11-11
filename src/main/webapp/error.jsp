@@ -6,11 +6,7 @@
 
 <t:pagetemplate>
     <jsp:attribute name="header">
-             Error page
-    </jsp:attribute>
-
-    <jsp:attribute name="footer">
-            Error page
+             ERROR PAGE
     </jsp:attribute>
 
     <jsp:body>

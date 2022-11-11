@@ -5,6 +5,10 @@
 
 <t:pagetemplate_admin>
 
+        <jsp:attribute name="header">
+             All users
+    </jsp:attribute>
+
     <jsp:body>
 
         <h1>Users</h1>

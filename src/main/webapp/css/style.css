@@ -1,15 +1,23 @@
 /* CSS stylesheet  for application */
 
 table {
-    border-collapse: collapse;
     border: 1px solid silver;
     padding:15px;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
 }
 
 th, td {
     border: 1px solid silver;
-    padding:15px;
+    text-align: left;
+    padding: 8px;
 }
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
 
 
 

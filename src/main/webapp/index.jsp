@@ -4,21 +4,22 @@
 <%@page errorPage="error.jsp" isErrorPage="false" %>
 
 <t:pagetemplate>
+        <jsp:attribute name="header">
+            WELCOME TO OLSKER CUPCAKES
+    </jsp:attribute>
 
     <jsp:body>
-
-        <h1>Welcome to Olsker Cupcakes</h1>
-        <img src="" alt="Image1">
-        <p>At Olsker cupcakes we make cupcakes for every desire!</p>
-        <p>You can order your cupcakes by choosing "make a cupcake" at the top of the page ( when you are logged in).</p>
-        <br>
-        <br>
-        <p>Have fun!</p>
-
-        <c:if test="${sessionScope.user == null}">
-            <p>You are not logged in yet. You can do it here: <a
-                    href="login.jsp">Login</a></p>
-        </c:if>
+        <div>
+            <img src="images/image1.png" alt="image1" width="400px">
+        </div>
+        <div>
+            <p>At Olsker cupcakes we make cupcakes for every desire!</p>
+            <p>To order your cupcakes you will need to login first.</p>
+            <p>When you are logged in click on "make a cupcake" in the top menu.</p>
+            <p>Here you can create your own cupcakes - choose a bottom and topping and the amount.</p>
+            <br>
+            <p><b>We look forward to making fresh cupcakes to you!</b></p>
+        </div>
 
     </jsp:body>
 

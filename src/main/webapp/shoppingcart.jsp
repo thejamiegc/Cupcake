@@ -4,47 +4,39 @@
 
 
 <t:pagetemplate_user>
+        <jsp:attribute name="header">
+             SHOPPING CART
+    </jsp:attribute>
 
     <jsp:body>
+        <p>Number of lines in cart: ${requestScope.cartsize}</p>
+        <h3>Items in cart</h3>
 
-        <h1>Shopping cart</h1>
-
-        <c:forEach var="item" items="${sessionScope.cart.cupcakeList}">
-            Topping: ${item.toppingID} Bottom: ${item.bottomID} Amount: ${item.amount}
-        </c:forEach>
-<%--        <div class="">--%>
-<%--            <table>--%>
-<%--                <tr>--%>
-<%--                    <th style="font-weight: bold">Cupcakes</th>--%>
-<%--                    <th style="font-weight: bold">Price</th>--%>
-<%--                </tr>--%>
-<%--                <tr>--%>
-<%--                    <td>cupcake 1</td>--%>
-<%--                    <td>price</td>--%>
-<%--                    <td><input type="submit" value="Delete"></td>--%>
-<%--                </tr>--%>
-<%--                <tr>--%>
-<%--                    <td>cupcake 2</td>--%>
-<%--                    <td>price</td>--%>
-<%--                    <td><input type="submit" value="Delete"></td>--%>
-<%--                </tr>--%>
-<%--                <tr>--%>
-<%--                    <td>cupcake 3</td>--%>
-<%--                    <td>price</td>--%>
-<%--                    <td><input type="submit" value="Delete"></td>--%>
-<%--                </tr>--%>
-<%--                <tr>--%>
-<%--                    <td style="font-weight: bold">Total price</td>--%>
-<%--                    <td>Total price</td>--%>
-<%--                </tr>--%>
-<%--            </table>--%>
-<%--        </div>--%>
-
-<%--        <div class="">--%>
-<%--            <input type="submit" value="Checkout">--%>
-<%--        </div>--%>
-
-
+        <div class="">
+            <table>
+                <tr>
+                    <th style="font-weight: bold">Cupcakes</th>
+                    <th style="font-weight: bold">Price</th>
+                    <th style="font-weight: bold">Delete item</th>
+                    <th style="font-weight: bold">Edit item</th>
+                </tr>
+                <c:forEach var="item" items="${sessionScope.cart.cupcakeList}">
+                    <tr>
+                        <td><p>(${item.quantity}) cupcake: ${item.toppingID} + ${item.bottomID}</p></td>
+                        <td><p>${item.cupcakePrice}</p></td>
+                        <td><button name="DeleteFromCart">Delete</button></td>
+                        <td><button name="EditCupcake">Edit</button></td>
+                    </tr>
+                </c:forEach>
+                <td style="font-weight: bold">Total price</td>
+                <td>0.0</td>
+                <td></td>
+                <td></td>
+            </table>
+        </div>
+        <br>
+        <div class="">
+            <button name="OrderConfirmation">Checkout</button>
+        </div>
     </jsp:body>
-
 </t:pagetemplate_user>

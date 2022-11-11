@@ -3,16 +3,14 @@ package dat.backend.model.entities;
 public class Topping {
     private int toppingID;
     private String topping;
-    private Double toppingPrice;
+    private int toppingPrice;
 
-    public Topping(String topping, Double toppingPrice) {
+    public Topping(String topping, int toppingPrice) {
         this.topping = topping;
         this.toppingPrice = toppingPrice;
-
     }
 
-    public Topping(int toppingID, String topping, Double toppingPrice)
-    {
+    public Topping(int toppingID, String topping, int toppingPrice) {
         this.toppingID = toppingID;
         this.topping = topping;
         this.toppingPrice = toppingPrice;
@@ -30,11 +28,11 @@ public class Topping {
         this.topping = topping;
     }
 
-    public Double getToppingPrice() {
+    public int getToppingPrice() {
         return toppingPrice;
     }
 
-    public void setToppingPrice(Double toppingPrice) {
+    public void setToppingPrice(int toppingPrice) {
         this.toppingPrice = toppingPrice;
     }
 

@@ -4,22 +4,30 @@
 <%@page errorPage="error.jsp" isErrorPage="false" %>
 
 <t:pagetemplate>
+        <jsp:attribute name="header">
+            CREATE USER
+    </jsp:attribute>
 
     <jsp:body>
 
-        <h1>Create user</h1>
+        <p>Don't have a profile? Create a new user here.</p>
 
         <div class="form-outline mb-4">
-            <form style="width:100px" action="createUser" method="post">
+            <form style="width:100px" action="createuser" method="post">
                 <input type="text" id="username" placeholder="name@mail.com" name="username"/>
+                <br>
                 <br>
                 <input type="password" id="password" placeholder="password" name="password"/>
                 <br>
-                <input type="password" id="passwordR" placeholder="reenter password" name="passwordR"/>
                 <br>
-                <input type="submit"  value="Log in"/>
+           <%--     <input type="password" id="passwordR" placeholder="reenter password" name="passwordR"/>
+                <br>
+                <br>--%>
+                <input type="submit" value="Log in"/>
             </form>
         </div>
+
+        <p>Forgot password? Click <a href="">here</a> for a new one</p>
 
     </jsp:body>
 

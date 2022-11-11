@@ -4,12 +4,13 @@
 <%@page errorPage="error.jsp" isErrorPage="false" %>
 
 <t:pagetemplate_user>
+        <jsp:attribute name="header">
+             TRANSACTION
+    </jsp:attribute>
 
     <jsp:body>
 
-        <h1>Transaction</h1>
-
-        <h1>Your order:</h1>
+        <h3>Your order:</h3>
 
         <div class="">
             <table>
@@ -40,10 +41,10 @@
             </table>
         </div>
 
-            <div class="">
+        <div class="">
             <table>
                 <tr>
-                <th style="font-weight: bold">Account</th>
+                    <th style="font-weight: bold">Account</th>
                 </tr>
                 <tr>
                     <td>Balance:</td>
@@ -59,7 +60,7 @@
                 </tr>
 
             </table>
-            </div>
+        </div>
 
         <div class="">
             <input type="submit" value="Cancel">

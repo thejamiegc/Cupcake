@@ -29,7 +29,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav justify-content-start">
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/welcomeUser.jsp">Home</a>
+                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/welcome.jsp">Home</a>
                     <a class="nav-item nav-link" href="${pageContext.request.contextPath}/makecupcake.jsp">Make a cupcake</a>
 
 
@@ -62,16 +62,13 @@
     <hr/>
     <div class="row mt-4">
         <div class="col">
-        DAT 2.sem 2022<br/>
-            CPH Business
+        DAT 2.sem 2022 - CPH Business
         </div>
         <div class="col">
-            <jsp:invoke fragment="footer"/><br/>
             <p>&copy; Olsker Cupcakes</p>
         </div>
         <div class="col">
-            Isak, Jamie, Andreas, <br/>
-            Felicia og Helena
+            Isak, Jamie, Andreas, Felicia og Helena
         </div>
     </div>
 
