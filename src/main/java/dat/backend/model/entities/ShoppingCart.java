@@ -26,4 +26,14 @@ public class ShoppingCart {
         return cupcakeList;
     }
 
+    public double cartTotal(){
+
+        double cartTotal = 0;
+        for(Cupcake c : cupcakeList){
+            cartTotal += c.getCupcakePrice();
+
+
+        }
+        return cartTotal;
+    }
 }

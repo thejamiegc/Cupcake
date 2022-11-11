@@ -29,7 +29,7 @@
                     </tr>
                 </c:forEach>
                 <td style="font-weight: bold">Total price</td>
-                <td>0.0</td>
+                <td>${sessionScope.cart.cartTotal()}</td>
                 <td></td>
                 <td></td>
             </table>
