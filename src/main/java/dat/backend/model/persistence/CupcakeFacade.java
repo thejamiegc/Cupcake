@@ -7,11 +7,11 @@ import dat.backend.model.exceptions.DatabaseException;
 import java.util.List;
 
 public class CupcakeFacade {
-    public static List<Topping> getToppingByID(int toppingID, ConnectionPool connectionPool) throws DatabaseException {
-        return CupcakeMapper.getToppingByID(toppingID, connectionPool);
+    public static List<Topping> getToppings(ConnectionPool connectionPool) throws DatabaseException {
+        return CupcakeMapper.getToppings(connectionPool);
     }
 
-    public static List<Bottom> getBottomByID(int bottomID, ConnectionPool connectionPool) throws DatabaseException {
-        return CupcakeMapper.getBottomID(bottomID, connectionPool);
+    public static List<Bottom> getBottoms(ConnectionPool connectionPool) throws DatabaseException {
+        return CupcakeMapper.getBottoms(connectionPool);
     }
 }

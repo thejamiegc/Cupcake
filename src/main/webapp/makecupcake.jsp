@@ -12,24 +12,18 @@
         <form action="addtocart" method="post">
             <label for="toppings">The Toppings:</label>
             <select name="toppings" id="toppings">
-                <option value="1">Chocolate</option>
-                <option value="2">Blueberry</option>
-                <option value="3">Raspberry</option>
-                <option value="4">Crispy</option>
-                <option value="5">Strawberry</option>
-                <option value="6">Rum/Raisin</option>
-                <option value="7">Orange</option>
-                <option value="8">Lemon</option>
-                <option value="9">Blue cheese</option>
+                <c:forEach var="item" items="${sessionScope.toppingList}">
+                    <option value="${item.toppingID}">${item.toppingName}</option>
+                </c:forEach>
             </select>
+
             <label for="bottoms">The Bottoms:</label>
             <select name="bottoms" id="bottoms">
-                <option value="1">Chocolate</option>
-                <option value="2">Vanilla</option>
-                <option value="3">Nutmeg</option>
-                <option value="4">Pistacio</option>
-                <option value="5">Almond</option>
+                <c:forEach var="item" items="${sessionScope.bottomList}">
+                <option value="${item.bottomID}">${item.bottomName}</option>
+                </c:forEach>
             </select>
+
             <label for="quantity">Number of cupcakes:</label>
             <input type="number" id="quantity" name="quantity" min="1" max="50"/>
             <button name="AddToCart">Add to cart</button>

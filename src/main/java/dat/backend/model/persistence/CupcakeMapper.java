@@ -9,11 +9,11 @@ import java.util.List;
 
 class CupcakeMapper {
 
-    static List<Topping> getToppingByID(int toppingID, ConnectionPool connectionPool) throws DatabaseException {
-        return ToppingMapper.getTopping(connectionPool);
+    static List<Topping> getToppings(ConnectionPool connectionPool) throws DatabaseException {
+        return ToppingMapper.getToppings(connectionPool);
     }
 
-    public static List<Bottom> getBottomID(int bottomID, ConnectionPool connectionPool) throws DatabaseException {
+    public static List<Bottom> getBottoms(ConnectionPool connectionPool) throws DatabaseException {
         return BottomMapper.getBottoms(connectionPool);
     }
 }

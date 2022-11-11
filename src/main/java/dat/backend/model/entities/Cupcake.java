@@ -5,39 +5,17 @@ public class Cupcake {
     private Bottom bottom;
     private int quantity;
     private double cupcakePrice;
-    private int toppingID;
-    private int bottomID;
 
-    //constructor
-    public Cupcake(int toppingID, int bottomID, int quantity) {
-        this.toppingID = toppingID;
-        this.bottomID = bottomID;
-        this.quantity = quantity;
-    }
 
-/*    //constructor
+
+      //constructor
     public Cupcake(Topping topping, Bottom bottom, int quantity) {
         this.topping = topping;
         this.bottom = bottom;
         this.quantity = quantity;
         //this.cupcakePrice = bottom.getBottomPrice() + topping.getToppingPrice();
-    }*/
-
-    public int getToppingID() {
-        return toppingID;
     }
 
-    public void setToppingID(int toppingID) {
-        this.toppingID = toppingID;
-    }
-
-    public int getBottomID() {
-        return bottomID;
-    }
-
-    public void setBottomID(int bottomID) {
-        this.bottomID = bottomID;
-    }
 
     public Topping getTopping() {
         return topping;
@@ -78,8 +56,6 @@ public class Cupcake {
                 ", bottom=" + bottom +
                 ", quantity=" + quantity +
                 ", cupcakePrice=" + cupcakePrice +
-                ", toppingID=" + toppingID +
-                ", bottomID=" + bottomID +
                 '}';
     }
 }

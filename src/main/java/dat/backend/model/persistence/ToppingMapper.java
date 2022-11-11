@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ToppingMapper {
 
-    static List<Topping> getTopping(ConnectionPool connectionPool) {
+    static List<Topping> getToppings(ConnectionPool connectionPool) {
 
         List<Topping> toppingList = new ArrayList<>();
 
@@ -23,7 +23,7 @@ public class ToppingMapper {
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
                     int toppingID = rs.getInt("toppingID");
-                    String topping = rs.getString("bottom");
+                    String topping = rs.getString("topping");
                     int toppingPrice = rs.getInt("toppingPrice");
                     Topping toppingtmp = new Topping(toppingID, topping, toppingPrice);
                     toppingList.add(toppingtmp);

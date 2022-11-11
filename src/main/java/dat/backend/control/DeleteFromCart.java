@@ -1,8 +1,5 @@
 package dat.backend.control;
 
-import dat.backend.model.entities.Cupcake;
-import dat.backend.model.entities.ShoppingCart;
-
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;

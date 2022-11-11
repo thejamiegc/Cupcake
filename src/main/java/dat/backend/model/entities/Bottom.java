@@ -2,17 +2,17 @@ package dat.backend.model.entities;
 
 public class Bottom {
     private int bottomID;
-    private String bottoms;
+    private String bottomName;
     private int bottomPrice;
 
-    public Bottom(int bottomID, String bottoms, int bottomPrice) {
+    public Bottom(int bottomID, String bottomName, int bottomPrice) {
         this.bottomID = bottomID;
-        this.bottoms = bottoms;
+        this.bottomName = bottomName;
         this.bottomPrice = bottomPrice;
     }
 
-    public Bottom(String bottoms, int bottomPrice) {
-        this.bottoms = bottoms;
+    public Bottom(String bottomName, int bottomPrice) {
+        this.bottomName = bottomName;
         this.bottomPrice = bottomPrice;
     }
 
@@ -20,12 +20,12 @@ public class Bottom {
         return bottomID;
     }
 
-    public String getBottoms() {
-        return bottoms;
+    public String getBottomName() {
+        return bottomName;
     }
 
-    public void setBottoms(String bottoms) {
-        this.bottoms = bottoms;
+    public void setBottomName(String bottomName) {
+        this.bottomName = bottomName;
     }
 
     public int getBottomPrice() {
@@ -39,7 +39,7 @@ public class Bottom {
     @Override
     public String toString() {
         return "Bottom{" +
-                "bottoms='" + bottoms + '\'' +
+                "bottoms='" + bottomName + '\'' +
                 ", bottomPrice=" + bottomPrice +
                 '}';
     }

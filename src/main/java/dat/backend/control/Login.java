@@ -1,9 +1,12 @@
 package dat.backend.control;
 
 import dat.backend.model.config.ApplicationStart;
+import dat.backend.model.entities.Bottom;
 import dat.backend.model.entities.ShoppingCart;
+import dat.backend.model.entities.Topping;
 import dat.backend.model.entities.User;
 import dat.backend.model.exceptions.DatabaseException;
+import dat.backend.model.persistence.CupcakeFacade;
 import dat.backend.model.persistence.UserFacade;
 import dat.backend.model.persistence.ConnectionPool;
 
@@ -14,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "login", urlPatterns = {"/login"} )
 public class Login extends HttpServlet {
@@ -41,7 +45,11 @@ public class Login extends HttpServlet {
             session = request.getSession();
             session.setAttribute("user", user); // adding user object to session scope
 
+            List<Bottom> bottomList = CupcakeFacade.getBottoms(connectionPool);
+            session.setAttribute("bottomList", bottomList);
 
+            List<Topping> toppingList = CupcakeFacade.getToppings(connectionPool);
+            session.setAttribute("toppingList", toppingList);
 
             ShoppingCart cart = new ShoppingCart();
             session.setAttribute("cart", cart); //adds empty shopping cart to session scope
