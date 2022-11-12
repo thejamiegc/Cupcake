@@ -8,6 +8,11 @@ public class User {
     private String role;
     private double balance;
 
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
     public User(String username, String password, String role, double balance) {
         this.username = username;
         this.password = password;
