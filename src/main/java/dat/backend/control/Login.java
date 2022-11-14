@@ -40,7 +40,7 @@ public class Login extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
  //       String role = request.getParameter("role");
-//        String balance = request.getParameter("balance");
+ //       String balance = request.getParameter("balance");
  //       double balance = Double.parseDouble(request.getParameter("balance"));
 
 
