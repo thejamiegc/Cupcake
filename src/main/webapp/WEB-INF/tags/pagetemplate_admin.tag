@@ -29,7 +29,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav justify-content-start">
-                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/adminusers.jsp">Users</a>
+                    <a class="nav-item nav-link" href="${pageContext.request.contextPath}/adminusers">Users</a>
                     <a class="nav-item nav-link" href="${pageContext.request.contextPath}/adminorders.jsp">Orders</a>
 
                 </div>

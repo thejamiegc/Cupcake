@@ -57,6 +57,9 @@ public class Login extends HttpServlet {
 
             ShoppingCart cart = new ShoppingCart();
             session.setAttribute("cart", cart); //adds empty shopping cart to session scope
+            if(user.getRole().equalsIgnoreCase("admin") ) {
+                request.getRequestDispatcher("adminwelcome.jsp").forward(request, response);
+            }
             request.getRequestDispatcher("welcome.jsp").forward(request, response);
         }
         catch (DatabaseException e) {
