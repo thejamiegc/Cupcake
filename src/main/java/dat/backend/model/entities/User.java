@@ -3,17 +3,21 @@ package dat.backend.model.entities;
 import java.util.Objects;
 
 public class User {
+    private int userID;
     private String username;
     private String password;
     private String role;
     private double balance;
 
-   /* public User(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }*/
 
     public User(String username, String password, String role, double balance) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+        this.balance = balance;
+    }
+    public User( int userID,String username, String password, String role, double balance) {
+        this.userID = userID;
         this.username = username;
         this.password = password;
         this.role = role;
