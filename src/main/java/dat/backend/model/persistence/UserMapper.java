@@ -72,9 +72,11 @@ class UserMapper {
                 ps.setString(2, password);
                 ResultSet rs = ps.executeQuery();
                 if (rs.next()) {
+                    int userID = rs.getInt("userID");
                     String role = rs.getString("role");
                     double balance = rs.getDouble("balance");
-                    user = new User(username, password, role, balance);
+
+                    user = new User(userID,username, password, role, balance);
                 } else {
                     throw new DatabaseException("Wrong username or password");
                 }

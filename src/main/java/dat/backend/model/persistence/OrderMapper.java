@@ -1,6 +1,8 @@
 package dat.backend.model.persistence;
 
 import dat.backend.model.entities.Order;
+import dat.backend.model.entities.OrderLine;
+import dat.backend.model.entities.User;
 import dat.backend.model.exceptions.DatabaseException;
 
 import java.sql.*;
@@ -80,18 +82,18 @@ class OrderMapper {
 
     }
 
-    static int insertOrderLine(double toppingPrice, double bottomPrice, int quantity, int orderID, int toppingID, int bottomID, ConnectionPool connectionPool) throws DatabaseException {
+    static int insertOrderLine(OrderLine orderLine, ConnectionPool connectionPool) throws DatabaseException {
         Logger.getLogger("web").log(Level.INFO, "");
         String sql = "INSERT INTO cupcake.`orderline` (toppingPrice, bottomPrice, quantity, orderID, toppingID, bottomID) VALUES (?,?,?,?,?,?)";
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-                ps.setDouble(1, toppingPrice);
-                ps.setDouble(2, bottomPrice);
-                ps.setInt(3, quantity);
-                ps.setInt(4, orderID);
-                ps.setInt(5, toppingID);
-                ps.setInt(6, bottomID);
-                int rowsAffected = ps.executeUpdate();
+                ps.setDouble(1, orderLine.getToppingPrice());
+                ps.setDouble(2, orderLine.getBottomPrice());
+                ps.setInt(3, orderLine.getQuantity());
+                ps.setInt(4, orderLine.getOrderID());
+                ps.setInt(5, orderLine.getToppingID());
+                ps.setInt(6, orderLine.getBottomID());
+                ps.executeUpdate();
                 ResultSet rs = ps.getGeneratedKeys();
                 rs.next();
                 return rs.getInt(1);
@@ -101,4 +103,22 @@ class OrderMapper {
         }
 
     }
+
+    public static void transaction(User user, ConnectionPool connectionPool) throws DatabaseException {
+        Logger.getLogger("web").log(Level.INFO, "");
+        String sql = "Update cupcake.user SET cupcake.user.balance = ? WHERE cupcake.user.userID = ?";
+        try (Connection connection = connectionPool.getConnection()) {
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setDouble(1,user.getBalance());
+                ps.setInt(2,user.getUserID());
+                ps.executeUpdate();
+
+
+
+            }
+        } catch (SQLException ex) {
+            throw new DatabaseException(ex, "Could not insert order into database");
+        }
+    }
 }
+

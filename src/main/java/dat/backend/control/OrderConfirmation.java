@@ -31,6 +31,8 @@ ConnectionPool connectionPool;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
 
@@ -40,7 +42,7 @@ ConnectionPool connectionPool;
             if(user.getBalance() >= cart.cartTotal()){
 
                 user.setBalance((user.getBalance() - cart.cartTotal()));
-
+                OrderFacade.transaction(user,connectionPool);
                 int orderID = OrderFacade.createOrder(user.getUserID(),connectionPool);
                 List<OrderLine> orderLineList = new ArrayList<>();
 
@@ -53,6 +55,7 @@ ConnectionPool connectionPool;
                             cart.getCupcakeList().get(i).getTopping().getToppingID(),
                             cart.getCupcakeList().get(i).getBottom().getBottomID());
                     orderLineList.add(tmpOrderLine);
+                    OrderFacade.insertOrderLine(tmpOrderLine,connectionPool);
                 }
                 session.setAttribute("orderLineList",orderLineList);
                 request.getRequestDispatcher("orderconfirmation.jsp").forward(request, response);
