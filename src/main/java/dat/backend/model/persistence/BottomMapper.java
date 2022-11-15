@@ -21,7 +21,7 @@ public class BottomMapper {
                 while (rs.next()) {
                     int bottomID = rs.getInt("bottomID");
                     String bottom = rs.getString("bottom");
-                    int bottomPrice = rs.getInt("bottomPrice");
+                    double bottomPrice = rs.getDouble("bottomPrice");
                     Bottom bottomtmp = new Bottom(bottomID, bottom, bottomPrice);
                     bottomList.add(bottomtmp);
                 }

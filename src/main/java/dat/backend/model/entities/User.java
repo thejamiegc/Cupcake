@@ -10,18 +10,22 @@ public class User {
     private double balance;
 
 
-    public User(String username, String password, String role, double balance) {
-        this.username = username;
-        this.password = password;
-        this.role = role;
-        this.balance = balance;
-    }
     public User( int userID,String username, String password, String role, double balance) {
         this.userID = userID;
         this.username = username;
         this.password = password;
         this.role = role;
         this.balance = balance;
+    }
+    public User(String username, String password, String role, double balance) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+        this.balance = balance;
+    }
+
+    public int getUserID() {
+        return userID;
     }
 
     public String getUsername() {

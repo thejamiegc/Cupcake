@@ -6,15 +6,20 @@
 <t:pagetemplate_admin>
 
         <jsp:attribute name="header">
-             All users
+             Admin Control Panel
     </jsp:attribute>
 
     <jsp:body>
 
-        <h1>Users</h1>
-        <form action="adminusers" style="width:100px" method="post"> <input type="submit" value="update"/></form>
+        <h1>User Overview</h1>
         <div class="">
-            <h3>Orderlist</h3>
+           <table>
+               <tr>
+                   <th><h3>Current Userlist</h3></th>
+                   <th><form action="adminusers" style="width:100px" method="post"><input type="submit" value="Update list"/></form></th>
+               </tr>
+           </table>
+
             <table>
                 <tr>
                     <th style="font-weight: bold">ID</th>
@@ -25,7 +30,7 @@
                 </tr>
                 <c:forEach var="item" items="${sessionScope.userList}">
                 <tr>
-                    <td>ID</td>
+                    <td>${item.userID}</td>
                     <td>${item.username}</td>
                     <td>${item.password}</td>
                     <td>${item.balance}</td>

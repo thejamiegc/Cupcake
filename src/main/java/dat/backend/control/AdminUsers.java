@@ -27,6 +27,8 @@ public class AdminUsers extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        response.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html");
         HttpSession session = request.getSession();
 

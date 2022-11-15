@@ -3,15 +3,15 @@ package dat.backend.model.entities;
 public class Bottom {
     private int bottomID;
     private String bottomName;
-    private int bottomPrice;
+    private double bottomPrice;
 
-    public Bottom(int bottomID, String bottomName, int bottomPrice) {
+    public Bottom(int bottomID, String bottomName, double bottomPrice) {
         this.bottomID = bottomID;
         this.bottomName = bottomName;
         this.bottomPrice = bottomPrice;
     }
 
-    public Bottom(String bottomName, int bottomPrice) {
+    public Bottom(String bottomName, double bottomPrice) {
         this.bottomName = bottomName;
         this.bottomPrice = bottomPrice;
     }
@@ -28,7 +28,7 @@ public class Bottom {
         this.bottomName = bottomName;
     }
 
-    public int getBottomPrice() {
+    public double getBottomPrice() {
         return bottomPrice;
     }
 

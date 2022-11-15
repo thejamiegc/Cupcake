@@ -1,6 +1,7 @@
 package dat.backend.model.entities;
 
 public class Cupcake {
+    private int cupcakeID;
     private Topping topping;
     private Bottom bottom;
     private int quantity;
@@ -16,6 +17,9 @@ public class Cupcake {
         this.cupcakePrice = (topping.getToppingPrice() + bottom.getBottomPrice()) * quantity;
     }
 
+    public int getCupcakeID() {
+        return cupcakeID;
+    }
 
     public Topping getTopping() {
         return topping;

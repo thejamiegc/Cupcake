@@ -14,4 +14,8 @@ public class OrderFacade {
     public static List<Order> getOrderList(ConnectionPool connectionPool) throws DatabaseException {
         return OrderMapper.getOrderList(connectionPool);
     }
+
+    public static int createOrder(int customerID,ConnectionPool connectionPool) throws DatabaseException {
+        return OrderMapper.createOrder(customerID,connectionPool);
+    }
 }

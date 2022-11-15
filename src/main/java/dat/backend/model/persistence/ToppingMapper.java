@@ -24,7 +24,7 @@ public class ToppingMapper {
                 while (rs.next()) {
                     int toppingID = rs.getInt("toppingID");
                     String topping = rs.getString("topping");
-                    int toppingPrice = rs.getInt("toppingPrice");
+                    double toppingPrice = rs.getDouble("toppingPrice");
                     Topping toppingtmp = new Topping(toppingID, topping, toppingPrice);
                     toppingList.add(toppingtmp);
                 }

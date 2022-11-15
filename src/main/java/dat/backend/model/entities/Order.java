@@ -9,31 +9,34 @@ public class Order {
     private int customerID;
     private Timestamp created;
 
-    private List<Order> orderList = new ArrayList<>();
+    private List<OrderLine> orderLineList = new ArrayList<>();
 
-    public Order() {
-    }
 
-    public void add(Order order) {
-       orderList.add(order);
-    }
-
-    public void remove(Order order) {
-        orderList.remove(order);
-    }
-
-    public Object getAllOrders() {
-        return orderList.size();
-    }
-
-    public List<Order> getOrderList() {
-        return orderList;
-    }
 
     public Order(int orderID, int customerID, Timestamp created) {
         this.orderID = orderID;
         this.customerID = customerID;
         this.created = created;
+    }
+
+    public Order(int customerID) {
+        this.customerID = customerID;
+    }
+
+    public void add(OrderLine orderLine) {
+       orderLineList.add(orderLine);
+    }
+
+    public void remove(OrderLine orderLine) {
+        orderLineList.remove(orderLine);
+    }
+
+    public int getOrderListSize() {
+        return orderLineList.size();
+    }
+
+    public List<OrderLine> getOrderList() {
+        return orderLineList;
     }
 
     public int getOrderID() {
