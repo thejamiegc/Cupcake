@@ -41,7 +41,7 @@ class UserMapper {
         User user;
         String sql = "INSERT INTO cupcake.user (username, password, role, balance) VALUES (?,?,?,?)";
         try (Connection connection = connectionPool.getConnection()) {
-            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            try (PreparedStatement ps = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS)) {
                 ps.setString(1, username);
                 ps.setString(2, password);
                 ps.setString(3, role);

@@ -9,10 +9,6 @@ import java.util.List;
 
 public class OrderFacade {
 
-    public static List<Order> getOrders(ConnectionPool connectionPool) {
-        return OrderMapper.getOrders(connectionPool);
-    }
-
     public static List<Order> getOrderList(ConnectionPool connectionPool) throws DatabaseException {
         return OrderMapper.getOrderList(connectionPool);
     }
@@ -27,5 +23,8 @@ public class OrderFacade {
 
     public static void transaction(User user, ConnectionPool connectionPool) throws DatabaseException{
         OrderMapper.transaction(user,connectionPool);
+    }
+    public static List<OrderLine> getOrderLineList(ConnectionPool connectionPool){
+        return OrderMapper.getOrderLineList(connectionPool);
     }
 }

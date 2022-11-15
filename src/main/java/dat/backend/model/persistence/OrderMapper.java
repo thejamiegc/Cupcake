@@ -13,21 +13,24 @@ import java.util.logging.Logger;
 
 class OrderMapper {
 
-    static List<Order> getOrders(ConnectionPool connectionPool) {
+    static List<OrderLine> getOrderLineList(ConnectionPool connectionPool) {
 
-        List<Order> orderList = new ArrayList<>();
+        List<OrderLine> orderLineArrayList = new ArrayList<>();
 
-        String sql = "select * from cupcake.order";
+        String sql = "select * from cupcake.orderline";
 
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
+                    double toppingPrice = rs.getDouble("toppingPrice");
+                    double bottomPrice = rs.getDouble("bottomPrice");
+                    int quantity = rs.getInt("quantity");
                     int orderID = rs.getInt("orderID");
-                    int customerID = rs.getInt("customerID");
-                    Timestamp created = rs.getTimestamp("created");
-                    Order order = new Order(orderID, customerID, created);
-                    orderList.add(order);
+                    int toppingID = rs.getInt("toppingID");
+                    int bottomID = rs.getInt("bottomID");
+                    OrderLine orderLine = new OrderLine(toppingPrice,bottomPrice,quantity,orderID,toppingID,bottomID);
+                    orderLineArrayList.add(orderLine);
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -35,7 +38,7 @@ class OrderMapper {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return orderList;
+        return orderLineArrayList;
     }
 
     static List<Order> getOrderList(ConnectionPool connectionPool) throws DatabaseException {

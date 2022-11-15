@@ -11,40 +11,42 @@
     <jsp:body>
         <p>Choose the account in the menu:</p> <form action="adminorders" style="width:100px" method="post"> <input type="submit" value="update"/></form>
         <div class="">
-            <form action="">
-                <label for="users">Users:</label>
-                <select name="users" id="users">
-                    <c:forEach var="item" items="${sessionScope.orderList}">
-                    <option value="id1">${item.customerID}</option>
-                    </c:forEach>
-                </select>
-            </form>
             <h3>Orderlist</h3>
             <table>
                 <tr>
                     <th style="font-weight: bold">Order date</th>
-                    <th style="font-weight: bold">Price total</th>
-                    <th style="font-weight: bold">Picked up?</th>
-                    <th style="font-weight: bold"></th>
+                    <th style="font-weight: bold">CustomerID</th>
+                    <th style="font-weight: bold">OrderID</th>
+<%--                    <th style="font-weight: bold">Picked up?</th>--%>
+<%--                    <th style="font-weight: bold">ToopingID</th>--%>
+<%--                    <th style="font-weight: bold">BottomID</th>--%>
+<%--                    <th style="font-weight: bold">Quantity</th>--%>
+                    <th style="font-weight: bold">Delete</th>
                 </tr>
+                <c:forEach var="orders" items="${sessionScope.orderList}">
+                    
                 <tr>
-                    <td>Date</td>
-                    <td>price</td>
-                    <td>Yes/no</td>
-                    <td><button name="DeleteOrder">Delete</button></td>
+                    <td>${orders.created}</td>
+                    <td>${orders.customerID}</td>
+                    <td>${orders.orderID}</td>
+<%--                    <td>1</td>--%>
+<%--                    <td>2</td>--%>
+<%--                    <td>3</td>--%>
+<%--                    <td>4</td>--%>
+<%--                    </c:forEach>--%>
+<%--                    <c:forEach var="orderline" items="${sessionScope.orderLineList}">--%>
+<%--                        <c:if test="${orders.orderID}==${orderline.orderID}">--%>
+
+<%--                            <td>${orderline.toppingID}</td>--%>
+<%--                            <td>${orderline.bottomID}</td>--%>
+<%--                            <td>${orderline.quantity}</td>--%>
+
+<%--                        </c:if>--%>
+                        <td><button name="DeleteOrder">Delete</button></td>
+                    </c:forEach>
                 </tr>
-                <tr>
-                    <td>Date</td>
-                    <td>price</td>
-                    <td>Yes/no</td>
-                    <td><button name="DeleteOrder">Delete</button></td>
-                </tr>
-                <tr>
-                    <td>Date</td>
-                    <td>price</td>
-                    <td>Yes/no</td>
-                    <td><button name="DeletOrder">Delete</button></td>
-                </tr>
+
+
             </table>
         </div>
 

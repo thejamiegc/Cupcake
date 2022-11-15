@@ -2,6 +2,7 @@ package dat.backend.control;
 
 import dat.backend.model.config.ApplicationStart;
 import dat.backend.model.entities.Order;
+import dat.backend.model.entities.OrderLine;
 import dat.backend.model.entities.User;
 import dat.backend.model.exceptions.DatabaseException;
 import dat.backend.model.persistence.ConnectionPool;
@@ -37,7 +38,10 @@ public class AdminOrders extends HttpServlet {
 
 
         List<Order> orderList = OrderFacade.getOrderList(connectionPool);
+        List<OrderLine> orderLineList = OrderFacade.getOrderLineList(connectionPool);
         session.setAttribute("orderList",orderList);
+        session.setAttribute("orderLineList",orderLineList);
+
 
         request.getRequestDispatcher("adminorders.jsp").forward(request, response);
         }catch (DatabaseException e){

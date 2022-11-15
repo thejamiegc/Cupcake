@@ -32,12 +32,11 @@ public class CreateUser extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String passwordR = request.getParameter("passwordR");
-        String role = request.getParameter("role");
-        double balance = Double.parseDouble((request.getParameter("balance")));
+
 
         try {
             UserFacade.createUser(username, password,"user",0., connectionPool);
-            User user = UserFacade.login(username, password,role,balance, connectionPool);
+            User user = UserFacade.login(username, password, connectionPool);
             session = request.getSession();
             session.setAttribute("user", user); // adding user object to session scope
             ShoppingCart cart = new ShoppingCart();
