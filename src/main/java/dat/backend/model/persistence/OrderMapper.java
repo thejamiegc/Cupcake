@@ -48,16 +48,14 @@ class OrderMapper {
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ResultSet rs = ps.executeQuery();
-                if (rs.next()) {
+                while (rs.next()) {
 
                     int orderID = rs.getInt("orderID");
                     int customerID = rs.getInt("customerID");
                     Timestamp created = rs.getTimestamp("created");
 
-                    Order order = new Order(orderID,customerID,created);
+                    Order order = new Order(orderID, customerID, created);
                     orderList.add(order);
-                } else {
-                    throw new DatabaseException("Wrong username or password");
                 }
             }
         } catch (SQLException ex) {

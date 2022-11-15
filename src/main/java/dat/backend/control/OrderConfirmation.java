@@ -25,6 +25,7 @@ public class OrderConfirmation extends HttpServlet {
 
         if(user.getBalance() >= cart.cartTotal()){
             user.setBalance((user.getBalance() - cart.cartTotal()));
+
             request.getRequestDispatcher("orderconfirmation.jsp").forward(request, response);
         }
 

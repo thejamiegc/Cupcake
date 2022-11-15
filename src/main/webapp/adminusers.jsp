@@ -12,7 +12,7 @@
     <jsp:body>
 
         <h1>Users</h1>
-
+        <form action="adminusers" style="width:100px" method="post"> <input type="submit" value="update"/></form>
         <div class="">
             <h3>Orderlist</h3>
             <table>
@@ -23,27 +23,15 @@
                     <th style="font-weight: bold">Balance</th>
                     <th style="font-weight: bold"></th>
                 </tr>
+                <c:forEach var="item" items="${sessionScope.userList}">
                 <tr>
                     <td>ID</td>
-                    <td>email</td>
-                    <td>password</td>
-                    <td>Balance</td>
+                    <td>${item.username}</td>
+                    <td>${item.password}</td>
+                    <td>${item.balance}</td>
                     <td><input type="submit" value="Update balance"></td>
                 </tr>
-                <tr>
-                    <td>ID</td>
-                    <td>email</td>
-                    <td>password</td>
-                    <td>Balance</td>
-                    <td><input type="submit" value="Update balance"></td>
-                </tr>
-                <tr>
-                    <td>ID</td>
-                    <td>email</td>
-                    <td>password</td>
-                    <td>Balance</td>
-                    <td><input type="submit" value="Update balance"></td>
-                </tr>
+                </c:forEach>
             </table>
         </div>
 

@@ -9,16 +9,14 @@
     </jsp:attribute>
 
     <jsp:body>
-        <p>Choose the account in the menu:</p>
-
+        <p>Choose the account in the menu:</p> <form action="adminorders" style="width:100px" method="post"> <input type="submit" value="update"/></form>
         <div class="">
             <form action="">
                 <label for="users">Users:</label>
                 <select name="users" id="users">
-                    <option value="id1">email1</option>
-                    <option value="id2">email2</option>
-                    <option value="id3">email3</option>
-                    <option value="id4">email4</option>
+                    <c:forEach var="item" items="${sessionScope.orderList}">
+                    <option value="id1">${item.customerID}</option>
+                    </c:forEach>
                 </select>
             </form>
             <h3>Orderlist</h3>

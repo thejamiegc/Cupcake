@@ -3,13 +3,16 @@ package dat.backend.control;
 import dat.backend.model.config.ApplicationStart;
 import dat.backend.model.entities.Order;
 import dat.backend.model.entities.User;
+import dat.backend.model.exceptions.DatabaseException;
 import dat.backend.model.persistence.ConnectionPool;
+import dat.backend.model.persistence.OrderFacade;
 import dat.backend.model.persistence.UserFacade;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "AdminOrders", value = "/adminorders")
 public class AdminOrders extends HttpServlet {
@@ -28,11 +31,17 @@ public class AdminOrders extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         HttpSession session = request.getSession();
-        List<Order> userList = UserFacade.getOrderList(connectionPool);
-        session.setAttribute("userList",orderList);
+        try {
+
+
+        List<Order> orderList = OrderFacade.getOrderList(connectionPool);
+        session.setAttribute("orderList",orderList);
 
         request.getRequestDispatcher("adminorders.jsp").forward(request, response);
-
+        }catch (DatabaseException e){
+            request.setAttribute("errormessage",e.getMessage());
+            request.getRequestDispatcher("error.jsp").forward(request,response);
+        }
 
     }
 }
