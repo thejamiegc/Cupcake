@@ -123,5 +123,34 @@ class OrderMapper {
             throw new DatabaseException(ex, "Could not insert order into database");
         }
     }
+
+    public static void deleteOrder(int orderID, ConnectionPool connectionPool) throws DatabaseException {
+        deleteOrderLine(orderID,connectionPool);
+        Logger.getLogger("web").log(Level.INFO, "");
+        String sql = "delete from cupcake.order WHERE orderID = ?";
+        try (Connection connection = connectionPool.getConnection()) {
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setDouble(1,orderID);
+                ps.executeUpdate();
+
+            }
+        } catch (SQLException ex) {
+            throw new DatabaseException(ex, "Could not insert order into database");
+        }
+    }
+
+    private static void deleteOrderLine(int orderID, ConnectionPool connectionPool) throws DatabaseException {
+        Logger.getLogger("web").log(Level.INFO, "");
+        String sql = "delete from cupcake.orderline WHERE orderID = ?";
+        try (Connection connection = connectionPool.getConnection()) {
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setDouble(1,orderID);
+                ps.executeUpdate();
+
+            }
+        } catch (SQLException ex) {
+            throw new DatabaseException(ex, "Could not insert order into database");
+        }
+    }
 }
 

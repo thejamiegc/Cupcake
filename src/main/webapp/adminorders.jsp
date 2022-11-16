@@ -21,7 +21,7 @@
 <%--                    <th style="font-weight: bold">ToopingID</th>--%>
 <%--                    <th style="font-weight: bold">BottomID</th>--%>
 <%--                    <th style="font-weight: bold">Quantity</th>--%>
-                    <th style="font-weight: bold">Delete</th>
+                    <th style="font-weight: bold">Cancel</th>
                 </tr>
                 <c:forEach var="orders" items="${sessionScope.orderList}">
                     
@@ -29,6 +29,9 @@
                     <td>${orders.created}</td>
                     <td>${orders.customerID}</td>
                     <td>${orders.orderID}</td>
+                    <td><form method="post"><button formaction="deleteorder" name="orderID" value="${orders.orderID} ">
+                        Cancel order
+                        </button></form></td>
 <%--                    <td>1</td>--%>
 <%--                    <td>2</td>--%>
 <%--                    <td>3</td>--%>
@@ -42,7 +45,7 @@
 <%--                            <td>${orderline.quantity}</td>--%>
 
 <%--                        </c:if>--%>
-                        <td><button name="DeleteOrder">Delete</button></td>
+
                     </c:forEach>
                 </tr>
 

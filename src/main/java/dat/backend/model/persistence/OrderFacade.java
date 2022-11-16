@@ -27,4 +27,8 @@ public class OrderFacade {
     public static List<OrderLine> getOrderLineList(ConnectionPool connectionPool){
         return OrderMapper.getOrderLineList(connectionPool);
     }
+
+    public static void deleteOrder(int orderID, ConnectionPool connectionPool) throws DatabaseException {
+        OrderMapper.deleteOrder(orderID,connectionPool);
+    }
 }
