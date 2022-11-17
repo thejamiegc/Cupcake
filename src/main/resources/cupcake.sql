@@ -27,7 +27,7 @@ DROP TABLE IF EXISTS `bottom`;
 CREATE TABLE `bottom` (
   `bottomID` int NOT NULL AUTO_INCREMENT,
   `bottom` varchar(45) NOT NULL,
-  `bottomPrice` int NOT NULL,
+  `bottomPrice` double NOT NULL,
   PRIMARY KEY (`bottomID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -56,7 +56,7 @@ CREATE TABLE `order` (
   PRIMARY KEY (`orderID`),
   KEY `fk_order_user1_idx` (`customerID`),
   CONSTRAINT `fk_order_user1` FOREIGN KEY (`customerID`) REFERENCES `user` (`userID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,6 +65,7 @@ CREATE TABLE `order` (
 
 LOCK TABLES `order` WRITE;
 /*!40000 ALTER TABLE `order` DISABLE KEYS */;
+INSERT INTO `order` VALUES (5,10,'2022-11-15 15:03:45'),(6,10,'2022-11-15 15:36:07'),(7,9,'2022-11-15 15:55:03'),(8,3,'2022-11-15 15:55:29');
 /*!40000 ALTER TABLE `order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -77,10 +78,9 @@ DROP TABLE IF EXISTS `orderline`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `orderline` (
   `orderlineID` int NOT NULL AUTO_INCREMENT,
-  `toppingPrice` int NOT NULL,
-  `bottomPrice` int NOT NULL,
+  `toppingPrice` double NOT NULL,
+  `bottomPrice` double NOT NULL,
   `quantity` int NOT NULL,
-  `cupcakeID` int NOT NULL,
   `orderID` int NOT NULL,
   `toppingID` int NOT NULL,
   `bottomID` int NOT NULL,
@@ -91,7 +91,7 @@ CREATE TABLE `orderline` (
   CONSTRAINT `fk_orderline_bottom1` FOREIGN KEY (`bottomID`) REFERENCES `bottom` (`bottomID`),
   CONSTRAINT `fk_orderline_order1` FOREIGN KEY (`orderID`) REFERENCES `order` (`orderID`),
   CONSTRAINT `fk_orderline_topping1` FOREIGN KEY (`toppingID`) REFERENCES `topping` (`toppingID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -100,6 +100,7 @@ CREATE TABLE `orderline` (
 
 LOCK TABLES `orderline` WRITE;
 /*!40000 ALTER TABLE `orderline` DISABLE KEYS */;
+INSERT INTO `orderline` VALUES (1,5,5,2,5,1,1),(2,5,5,2,6,1,1),(3,5,5,32,7,1,1),(4,5,5,22,8,2,1);
 /*!40000 ALTER TABLE `orderline` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -113,7 +114,7 @@ DROP TABLE IF EXISTS `topping`;
 CREATE TABLE `topping` (
   `toppingID` int NOT NULL AUTO_INCREMENT,
   `topping` varchar(45) NOT NULL,
-  `toppingPrice` int NOT NULL,
+  `toppingPrice` double NOT NULL,
   PRIMARY KEY (`toppingID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -143,7 +144,7 @@ CREATE TABLE `user` (
   `balance` double NOT NULL,
   PRIMARY KEY (`userID`),
   UNIQUE KEY `username_UNIQUE` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -152,7 +153,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (3,'test@gmail.com','1234','user',1200),(4,'admin@gmail.com','1234','admin',0),(5,'palle@uella.com','123','user',0),(7,'NikolajerOrdblind@haha.com','123','user',0),(8,'user@snabela.dk','123','user',0),(9,'nej','123','user',0);
+INSERT INTO `user` VALUES (3,'test@gmail.com','1234','user',980),(4,'admin@gmail.com','1234','admin',0),(5,'palle@uella.com','123','user',0),(8,'user@snabela.dk','123','user',0),(9,'nej','123','user',9680),(10,'Blåost','nam','user',9980),(11,'Nejhatten','123','user',0),(12,'AdminBlåOst','nam','Admin',10000),(13,'Bluecheese420','nam','user',0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -165,4 +166,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-11 12:01:27
+-- Dump completed on 2022-11-16 12:08:23
