@@ -18,7 +18,6 @@ public class AddToCart extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html");
-        //ConnectionPool connectionPool = ApplicationStart.getConnectionPool();
         HttpSession session = request.getSession();
         ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
         List<Topping> toppingList = (List<Topping>) session.getAttribute("toppingList");
@@ -27,10 +26,6 @@ public class AddToCart extends HttpServlet {
         int toppingID = Integer.parseInt((request.getParameter("toppings")));
         int bottomID = Integer.parseInt((request.getParameter("bottoms")));
         int quantity = Integer.parseInt((request.getParameter("quantity")));
-
-        //int cupcakePrice = Integer.parseInt((request.getParameter("cupcakePrice")));
-        //Topping topping = CupcakeFacade.getToppingByID(toppingID, connectionPool);
-        //Bottom bottom = CupcakeFacade.getBottomByID(bottomID, connectionPool);
 
         Cupcake cupcake = new Cupcake(toppingList.get(toppingID-1), bottomList.get(bottomID-1), quantity);
         cart.add(cupcake); //adds a cupcake to the shopping cart

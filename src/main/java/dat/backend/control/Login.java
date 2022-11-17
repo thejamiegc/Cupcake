@@ -9,7 +9,6 @@ import dat.backend.model.exceptions.DatabaseException;
 import dat.backend.model.persistence.CupcakeFacade;
 import dat.backend.model.persistence.UserFacade;
 import dat.backend.model.persistence.ConnectionPool;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,9 +40,6 @@ public class Login extends HttpServlet {
         session.setAttribute("user", null); // invalidating user object in session scope
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        //       String role = request.getParameter("role");
-        //       String balance = request.getParameter("balance");
-        //       double balance = Double.parseDouble(request.getParameter("balance"));
 
         try {
             User user = UserFacade.login(username, password, connectionPool);
