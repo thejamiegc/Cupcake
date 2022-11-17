@@ -18,10 +18,6 @@
                     <th style="font-weight: bold">Order date</th>
                     <th style="font-weight: bold">CustomerID</th>
                     <th style="font-weight: bold">OrderID</th>
-                        <%--                    <th style="font-weight: bold">Picked up?</th>--%>
-                        <%--                    <th style="font-weight: bold">ToopingID</th>--%>
-                        <%--                    <th style="font-weight: bold">BottomID</th>--%>
-                        <%--                    <th style="font-weight: bold">Quantity</th>--%>
                     <th style="font-weight: bold">Cancel</th>
                 </tr>
                 <c:forEach var="orders" items="${sessionScope.orderList}">
@@ -37,19 +33,6 @@
                             </button>
                         </form>
                     </td>
-                        <%--                    <td>1</td>--%>
-                        <%--                    <td>2</td>--%>
-                        <%--                    <td>3</td>--%>
-                        <%--                    <td>4</td>--%>
-                        <%--                    </c:forEach>--%>
-                        <%--                    <c:forEach var="orderline" items="${sessionScope.orderLineList}">--%>
-                        <%--                        <c:if test="${orders.orderID}==${orderline.orderID}">--%>
-
-                        <%--                            <td>${orderline.toppingID}</td>--%>
-                        <%--                            <td>${orderline.bottomID}</td>--%>
-                        <%--                            <td>${orderline.quantity}</td>--%>
-
-                        <%--                        </c:if>--%>
 
                     </c:forEach>
                 </tr>
