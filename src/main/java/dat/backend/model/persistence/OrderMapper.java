@@ -4,7 +4,6 @@ import dat.backend.model.entities.Order;
 import dat.backend.model.entities.OrderLine;
 import dat.backend.model.entities.User;
 import dat.backend.model.exceptions.DatabaseException;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

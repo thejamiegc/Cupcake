@@ -1,7 +1,6 @@
 package dat.backend.model.config;
 
 import dat.backend.model.persistence.ConnectionPool;
-
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;

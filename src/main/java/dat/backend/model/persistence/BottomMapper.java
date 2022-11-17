@@ -1,8 +1,6 @@
 package dat.backend.model.persistence;
 
 import dat.backend.model.entities.Bottom;
-import dat.backend.model.entities.Order;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
