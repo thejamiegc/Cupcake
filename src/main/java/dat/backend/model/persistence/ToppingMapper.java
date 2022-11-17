@@ -15,7 +15,6 @@ public class ToppingMapper {
     static List<Topping> getToppings(ConnectionPool connectionPool) {
 
         List<Topping> toppingList = new ArrayList<>();
-
         String sql = "select * from cupcake.topping";
 
         try (Connection connection = connectionPool.getConnection()) {

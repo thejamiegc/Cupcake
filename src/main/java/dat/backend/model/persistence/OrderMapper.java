@@ -16,7 +16,6 @@ class OrderMapper {
     static List<OrderLine> getOrderLineList(ConnectionPool connectionPool) {
 
         List<OrderLine> orderLineArrayList = new ArrayList<>();
-
         String sql = "select * from cupcake.orderline";
 
         try (Connection connection = connectionPool.getConnection()) {
@@ -29,7 +28,7 @@ class OrderMapper {
                     int orderID = rs.getInt("orderID");
                     int toppingID = rs.getInt("toppingID");
                     int bottomID = rs.getInt("bottomID");
-                    OrderLine orderLine = new OrderLine(toppingPrice,bottomPrice,quantity,orderID,toppingID,bottomID);
+                    OrderLine orderLine = new OrderLine(toppingPrice, bottomPrice, quantity, orderID, toppingID, bottomID);
                     orderLineArrayList.add(orderLine);
                 }
             } catch (SQLException e) {
@@ -43,21 +42,16 @@ class OrderMapper {
 
     static List<Order> getOrderList(ConnectionPool connectionPool) throws DatabaseException {
         Logger.getLogger("web").log(Level.INFO, "");
-
-
         List<Order> orderList = new ArrayList<>();
-
         String sql = "SELECT * FROM cupcake.`order`";
 
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
-
                     int orderID = rs.getInt("orderID");
                     int customerID = rs.getInt("customerID");
                     Timestamp created = rs.getTimestamp("created");
-
                     Order order = new Order(orderID, customerID, created);
                     orderList.add(order);
                 }
@@ -82,7 +76,6 @@ class OrderMapper {
         } catch (SQLException ex) {
             throw new DatabaseException(ex, "Could not insert order into database");
         }
-
     }
 
     static int insertOrderLine(OrderLine orderLine, ConnectionPool connectionPool) throws DatabaseException {
@@ -104,7 +97,6 @@ class OrderMapper {
         } catch (SQLException ex) {
             throw new DatabaseException(ex, "Could not insert order into database");
         }
-
     }
 
     public static void transaction(User user, ConnectionPool connectionPool) throws DatabaseException {
@@ -112,12 +104,9 @@ class OrderMapper {
         String sql = "Update cupcake.user SET cupcake.user.balance = ? WHERE cupcake.user.userID = ?";
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
-                ps.setDouble(1,user.getBalance());
-                ps.setInt(2,user.getUserID());
+                ps.setDouble(1, user.getBalance());
+                ps.setInt(2, user.getUserID());
                 ps.executeUpdate();
-
-
-
             }
         } catch (SQLException ex) {
             throw new DatabaseException(ex, "Could not insert order into database");
@@ -125,14 +114,13 @@ class OrderMapper {
     }
 
     public static void deleteOrder(int orderID, ConnectionPool connectionPool) throws DatabaseException {
-        deleteOrderLine(orderID,connectionPool);
+        deleteOrderLine(orderID, connectionPool);
         Logger.getLogger("web").log(Level.INFO, "");
         String sql = "delete from cupcake.order WHERE orderID = ?";
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
-                ps.setDouble(1,orderID);
+                ps.setDouble(1, orderID);
                 ps.executeUpdate();
-
             }
         } catch (SQLException ex) {
             throw new DatabaseException(ex, "Could not insert order into database");
@@ -144,9 +132,8 @@ class OrderMapper {
         String sql = "delete from cupcake.orderline WHERE orderID = ?";
         try (Connection connection = connectionPool.getConnection()) {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
-                ps.setDouble(1,orderID);
+                ps.setDouble(1, orderID);
                 ps.executeUpdate();
-
             }
         } catch (SQLException ex) {
             throw new DatabaseException(ex, "Could not insert order into database");

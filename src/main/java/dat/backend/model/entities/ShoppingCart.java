@@ -7,9 +7,11 @@ public class ShoppingCart {
 
     private List<Cupcake> cupcakeList = new ArrayList<>();
 
+    //constructor
     public ShoppingCart() {
     }
 
+    //methods
     public void add(Cupcake cupcake) {
         cupcakeList.add(cupcake);
     }
@@ -18,6 +20,15 @@ public class ShoppingCart {
         cupcakeList.remove(cupcake);
     }
 
+    public double cartTotal() {
+        double cartTotal = 0;
+        for (Cupcake c : cupcakeList) {
+            cartTotal += c.getCupcakePrice();
+        }
+        return cartTotal;
+    }
+
+    //getters
     public Object getNumberOfCupcakes() {
         return cupcakeList.size();
     }
@@ -26,14 +37,4 @@ public class ShoppingCart {
         return cupcakeList;
     }
 
-    public double cartTotal(){
-
-        double cartTotal = 0;
-        for(Cupcake c : cupcakeList){
-            cartTotal += c.getCupcakePrice();
-
-
-        }
-        return cartTotal;
-    }
 }

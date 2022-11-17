@@ -7,9 +7,9 @@ import java.io.IOException;
 
 @WebServlet(name = "DeleteFromCart", value = "/deletefromcart")
 public class DeleteFromCart extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 
     @Override

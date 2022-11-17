@@ -18,15 +18,14 @@ import java.util.List;
 
 @WebServlet(name = "OrderConfirmation", value = "/orderconfirmation")
 public class OrderConfirmation extends HttpServlet {
-ConnectionPool connectionPool;
+    ConnectionPool connectionPool;
+
     public void init() throws ServletException {
         this.connectionPool = ApplicationStart.getConnectionPool();
-
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 
     @Override
@@ -39,14 +38,13 @@ ConnectionPool connectionPool;
         ShoppingCart cart = (ShoppingCart) session.getAttribute("cart");
         try {
 
-            if(user.getBalance() >= cart.cartTotal()){
-
+            if (user.getBalance() >= cart.cartTotal()) {
                 user.setBalance((user.getBalance() - cart.cartTotal()));
-                OrderFacade.transaction(user,connectionPool);
-                int orderID = OrderFacade.createOrder(user.getUserID(),connectionPool);
+                OrderFacade.transaction(user, connectionPool);
+                int orderID = OrderFacade.createOrder(user.getUserID(), connectionPool);
                 List<OrderLine> orderLineList = new ArrayList<>();
 
-                for(int i = 0; i< cart.getCupcakeList().size();i++){
+                for (int i = 0; i < cart.getCupcakeList().size(); i++) {
                     OrderLine tmpOrderLine = new OrderLine(
                             cart.getCupcakeList().get(i).getTopping().getToppingPrice(),
                             cart.getCupcakeList().get(i).getBottom().getBottomPrice(),
@@ -55,19 +53,15 @@ ConnectionPool connectionPool;
                             cart.getCupcakeList().get(i).getTopping().getToppingID(),
                             cart.getCupcakeList().get(i).getBottom().getBottomID());
                     orderLineList.add(tmpOrderLine);
-                    OrderFacade.insertOrderLine(tmpOrderLine,connectionPool);
+                    OrderFacade.insertOrderLine(tmpOrderLine, connectionPool);
                 }
-                session.setAttribute("orderLineList",orderLineList);
+                session.setAttribute("orderLineList", orderLineList);
                 request.getRequestDispatcher("orderconfirmation.jsp").forward(request, response);
             }
-
             request.getRequestDispatcher("shoppingcart.jsp").forward(request, response);
-        }
-        catch (DatabaseException e){
+        } catch (DatabaseException e) {
             request.setAttribute("errormessage", e.getMessage());
-            request.getRequestDispatcher("error.jsp").forward(request,response);
+            request.getRequestDispatcher("error.jsp").forward(request, response);
         }
-
     }
-
 }

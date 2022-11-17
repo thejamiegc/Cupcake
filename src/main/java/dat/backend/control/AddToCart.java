@@ -4,7 +4,6 @@ import dat.backend.model.entities.Bottom;
 import dat.backend.model.entities.Cupcake;
 import dat.backend.model.entities.ShoppingCart;
 import dat.backend.model.entities.Topping;
-
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;

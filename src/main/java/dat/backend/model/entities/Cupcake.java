@@ -8,8 +8,7 @@ public class Cupcake {
     private double cupcakePrice;
 
 
-
-      //constructor
+    //constructor
     public Cupcake(Topping topping, Bottom bottom, int quantity) {
         this.topping = topping;
         this.bottom = bottom;
@@ -17,6 +16,7 @@ public class Cupcake {
         this.cupcakePrice = (topping.getToppingPrice() + bottom.getBottomPrice()) * quantity;
     }
 
+    //getters
     public int getCupcakeID() {
         return cupcakeID;
     }
@@ -25,28 +25,29 @@ public class Cupcake {
         return topping;
     }
 
-    public void setTopping(Topping topping) {
-        this.topping = topping;
-    }
-
     public Bottom getBottom() {
         return bottom;
-    }
-
-    public void setBottom(Bottom bottom) {
-        this.bottom = bottom;
     }
 
     public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
     public double getCupcakePrice() {
         return cupcakePrice;
+    }
+
+    //setters
+    public void setTopping(Topping topping) {
+        this.topping = topping;
+    }
+
+    public void setBottom(Bottom bottom) {
+        this.bottom = bottom;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public void setCupcakePrice(double cupcakePrice) {

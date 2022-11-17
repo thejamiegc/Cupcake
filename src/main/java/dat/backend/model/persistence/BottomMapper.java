@@ -12,7 +12,6 @@ public class BottomMapper {
     static List<Bottom> getBottoms(ConnectionPool connectionPool) {
 
         List<Bottom> bottomList = new ArrayList<>();
-
         String sql = "select * from cupcake.bottom";
 
         try (Connection connection = connectionPool.getConnection()) {
