@@ -1,7 +1,7 @@
 package dat.backend.model.entities;
 
 public class OrderLine {
-//    private int orderlineID;
+    //private int orderlineID;
     private double toppingPrice;
     private double bottomPrice;
     private int quantity;
@@ -9,6 +9,7 @@ public class OrderLine {
     private int toppingID;
     private int bottomID;
 
+    //constructor
     public OrderLine(/*int orderlineID,*/ double toppingPrice, double bottomPrice, int quantity, int orderID, int toppingID, int bottomID) {
 //        this.orderlineID = orderlineID;
         this.toppingPrice = toppingPrice;
@@ -19,6 +20,7 @@ public class OrderLine {
         this.bottomID = bottomID;
     }
 
+    //getters
     public double getToppingPrice() {
         return toppingPrice;
     }

@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page errorPage="error.jsp" isErrorPage="false" %>
@@ -9,9 +9,7 @@
     </jsp:attribute>
 
     <jsp:body>
-
         <h3>Your order:</h3>
-
         <div class="">
             <table>
                 <tr>
@@ -58,18 +56,14 @@
                     <td>New balance:</td>
                     <td>user new balance</td>
                 </tr>
-
             </table>
         </div>
-
         <div class="">
             <input type="submit" value="Cancel">
         </div>
-
         <div class="">
             <input type="submit" value="Pay now">
         </div>
 
     </jsp:body>
-
 </t:pagetemplate_user>

@@ -5,17 +5,20 @@ public class Bottom {
     private String bottomName;
     private double bottomPrice;
 
+    //constructor
     public Bottom(int bottomID, String bottomName, double bottomPrice) {
         this.bottomID = bottomID;
         this.bottomName = bottomName;
         this.bottomPrice = bottomPrice;
     }
 
+    //constructor
     public Bottom(String bottomName, double bottomPrice) {
         this.bottomName = bottomName;
         this.bottomPrice = bottomPrice;
     }
 
+    //getters
     public int getBottomID() {
         return bottomID;
     }
@@ -24,12 +27,13 @@ public class Bottom {
         return bottomName;
     }
 
-    public void setBottomName(String bottomName) {
-        this.bottomName = bottomName;
-    }
-
     public double getBottomPrice() {
         return bottomPrice;
+    }
+
+    //setters
+    public void setBottomName(String bottomName) {
+        this.bottomName = bottomName;
     }
 
     public void setBottomPrice(int bottomPrice) {

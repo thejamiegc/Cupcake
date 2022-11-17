@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -20,7 +20,7 @@
             <label for="bottoms">The Bottoms:</label>
             <select name="bottoms" id="bottoms">
                 <c:forEach var="item" items="${sessionScope.bottomList}">
-                <option value="${item.bottomID}">${item.bottomName}</option>
+                    <option value="${item.bottomID}">${item.bottomName}</option>
                 </c:forEach>
             </select>
 
@@ -30,5 +30,4 @@
         </form>
 
     </jsp:body>
-
 </t:pagetemplate_user>

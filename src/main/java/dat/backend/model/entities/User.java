@@ -9,14 +9,16 @@ public class User {
     private String role;
     private double balance;
 
-
-    public User( int userID,String username, String password, String role, double balance) {
+    //constructor
+    public User(int userID, String username, String password, String role, double balance) {
         this.userID = userID;
         this.username = username;
         this.password = password;
         this.role = role;
         this.balance = balance;
     }
+
+    //constructor
     public User(String username, String password, String role, double balance) {
         this.username = username;
         this.password = password;
@@ -24,6 +26,7 @@ public class User {
         this.balance = balance;
     }
 
+    //getters
     public int getUserID() {
         return userID;
     }
@@ -32,28 +35,29 @@ public class User {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getPassword() {
         return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getRole() {
         return role;
     }
 
+    public double getBalance() {
+        return balance;
+    }
+
+    //setters
     public void setRole(String role) {
         this.role = role;
     }
 
-    public double getBalance() {
-        return balance;
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public void setBalance(double balance) {

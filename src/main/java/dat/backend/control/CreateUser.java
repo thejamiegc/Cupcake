@@ -9,7 +9,6 @@ import dat.backend.model.exceptions.DatabaseException;
 import dat.backend.model.persistence.ConnectionPool;
 import dat.backend.model.persistence.CupcakeFacade;
 import dat.backend.model.persistence.UserFacade;
-
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -37,25 +36,23 @@ public class CreateUser extends HttpServlet {
         String password = request.getParameter("password");
         String passwordR = request.getParameter("passwordR");
 
-
         try {
-            UserFacade.createUser(username, password,"user",0., connectionPool);
+            UserFacade.createUser(username, password, "user", 0., connectionPool);
             User user = UserFacade.login(username, password, connectionPool);
             session = request.getSession();
             session.setAttribute("user", user); // adding user object to session scope
+
             List<Bottom> bottomList = CupcakeFacade.getBottoms(connectionPool);
             session.setAttribute("bottomList", bottomList);
 
             List<Topping> toppingList = CupcakeFacade.getToppings(connectionPool);
             session.setAttribute("toppingList", toppingList);
+
             ShoppingCart cart = new ShoppingCart();
             session.setAttribute("cart", cart);
 
-
-
             request.getRequestDispatcher("welcome.jsp").forward(request, response);
-        }
-        catch (DatabaseException e) {
+        } catch (DatabaseException e) {
             request.setAttribute("errormessage", e.getMessage());
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }

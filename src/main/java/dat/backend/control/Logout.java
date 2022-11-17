@@ -9,6 +9,7 @@ import java.io.IOException;
 
 @WebServlet(name = "logout", urlPatterns = {"/logout"} )
 public class Logout extends HttpServlet {
+
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
         HttpSession session = request.getSession();

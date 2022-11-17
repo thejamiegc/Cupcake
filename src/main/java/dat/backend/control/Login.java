@@ -9,7 +9,6 @@ import dat.backend.model.exceptions.DatabaseException;
 import dat.backend.model.persistence.CupcakeFacade;
 import dat.backend.model.persistence.UserFacade;
 import dat.backend.model.persistence.ConnectionPool;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +18,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "login", urlPatterns = {"/login"} )
+@WebServlet(name = "login", urlPatterns = {"/login"})
 public class Login extends HttpServlet {
     private ConnectionPool connectionPool;
 
@@ -41,13 +40,8 @@ public class Login extends HttpServlet {
         session.setAttribute("user", null); // invalidating user object in session scope
         String username = request.getParameter("username");
         String password = request.getParameter("password");
- //       String role = request.getParameter("role");
- //       String balance = request.getParameter("balance");
- //       double balance = Double.parseDouble(request.getParameter("balance"));
-
 
         try {
-
             User user = UserFacade.login(username, password, connectionPool);
             session = request.getSession();
             session.setAttribute("user", user); // adding user object to session scope
@@ -60,12 +54,11 @@ public class Login extends HttpServlet {
 
             ShoppingCart cart = new ShoppingCart();
             session.setAttribute("cart", cart); //adds empty shopping cart to session scope
-            if(user.getRole().equalsIgnoreCase("admin") ) {
+            if (user.getRole().equalsIgnoreCase("admin")) {
                 request.getRequestDispatcher("adminwelcome.jsp").forward(request, response);
             }
             request.getRequestDispatcher("welcome.jsp").forward(request, response);
-        }
-        catch (DatabaseException e) {
+        } catch (DatabaseException e) {
             request.setAttribute("errormessage", e.getMessage());
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }

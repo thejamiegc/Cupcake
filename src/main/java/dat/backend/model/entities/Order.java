@@ -8,29 +8,30 @@ public class Order {
     private int orderID;
     private int customerID;
     private Timestamp created;
-
     private List<OrderLine> orderLineList = new ArrayList<>();
 
-
-
+    //constructor
     public Order(int orderID, int customerID, Timestamp created) {
         this.orderID = orderID;
         this.customerID = customerID;
         this.created = created;
     }
 
+    //constructor
     public Order(int customerID) {
         this.customerID = customerID;
     }
 
+    //methods
     public void add(OrderLine orderLine) {
-       orderLineList.add(orderLine);
+        orderLineList.add(orderLine);
     }
 
     public void remove(OrderLine orderLine) {
         orderLineList.remove(orderLine);
     }
 
+    //getters
     public int getOrderListSize() {
         return orderLineList.size();
     }
@@ -43,20 +44,21 @@ public class Order {
         return orderID;
     }
 
-    public void setOrderID(int orderID) {
-        this.orderID = orderID;
-    }
-
     public int getCustomerID() {
         return customerID;
     }
 
-    public void setCustomerID(int customerID) {
-        this.customerID = customerID;
-    }
-
     public Timestamp getCreated() {
         return created;
+    }
+
+    //setters
+    public void setOrderID(int orderID) {
+        this.orderID = orderID;
+    }
+
+    public void setCustomerID(int customerID) {
+        this.customerID = customerID;
     }
 
     public void setCreated(Timestamp created) {

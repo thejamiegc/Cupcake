@@ -1,7 +1,6 @@
 package dat.backend.model.config;
 
 import dat.backend.model.persistence.ConnectionPool;
-
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
@@ -31,14 +30,13 @@ public class ApplicationStart implements ServletContextListener {
         try {
             Class.forName("org.slf4j.impl.StaticLoggerBinder");
             connectionPool = new ConnectionPool();
-        }
-        catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) {
             Logger.getLogger("web").log(Level.SEVERE, e.getMessage(), e);
         }
     }
 
     public static ConnectionPool getConnectionPool() {
-            return connectionPool;
+        return connectionPool;
     }
 
     @Override
@@ -59,8 +57,7 @@ public class ApplicationStart implements ServletContextListener {
                 try {
                     Logger.getLogger("web").log(Level.INFO, "Deregistering JDBC driver");
                     DriverManager.deregisterDriver(driver);
-                }
-                catch (SQLException ex) {
+                } catch (SQLException ex) {
                     Logger.getLogger("web").log(Level.SEVERE, "Error deregistering JDBC driver");
                 }
             } else {

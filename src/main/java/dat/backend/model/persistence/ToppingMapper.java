@@ -1,8 +1,6 @@
 package dat.backend.model.persistence;
 
-import dat.backend.model.entities.Bottom;
 import dat.backend.model.entities.Topping;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,7 +13,6 @@ public class ToppingMapper {
     static List<Topping> getToppings(ConnectionPool connectionPool) {
 
         List<Topping> toppingList = new ArrayList<>();
-
         String sql = "select * from cupcake.topping";
 
         try (Connection connection = connectionPool.getConnection()) {

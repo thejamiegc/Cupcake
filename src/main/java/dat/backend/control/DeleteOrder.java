@@ -4,7 +4,6 @@ import dat.backend.model.config.ApplicationStart;
 import dat.backend.model.exceptions.DatabaseException;
 import dat.backend.model.persistence.ConnectionPool;
 import dat.backend.model.persistence.OrderFacade;
-
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -18,9 +17,9 @@ public class DeleteOrder extends HttpServlet {
     public void init() throws ServletException {
         this.connectionPool = ApplicationStart.getConnectionPool();
     }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 
     @Override
@@ -29,17 +28,13 @@ public class DeleteOrder extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html");
         HttpSession session = request.getSession();
-        int orderID = Integer.parseInt(request.getParameter("orderID").replace(" ",""));
+        int orderID = Integer.parseInt(request.getParameter("orderID").replace(" ", ""));
         try {
-            OrderFacade.deleteOrder(orderID,connectionPool);
+            OrderFacade.deleteOrder(orderID, connectionPool);
             request.getRequestDispatcher("adminorders.jsp").forward(request, response);
-        }catch (DatabaseException e) {
+        } catch (DatabaseException e) {
             request.setAttribute("errormessage", e.getMessage());
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
-
-
-
-
     }
 }
