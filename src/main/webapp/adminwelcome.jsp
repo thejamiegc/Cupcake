@@ -10,7 +10,7 @@
     </jsp:attribute>
 
     <jsp:body>
-        <img src="images/image1.png" alt="Image1">
+        <img src="images/image1.png" alt="image1" width="400px">
         <p>You have more editing privileges. You can see users or orders at the top of the page.</p>
     </jsp:body>
 </t:pagetemplate_admin>
